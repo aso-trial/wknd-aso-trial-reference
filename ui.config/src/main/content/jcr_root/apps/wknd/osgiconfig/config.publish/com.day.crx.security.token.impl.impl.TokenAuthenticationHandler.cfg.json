@@ -1,0 +1,9 @@
+{
+    "path":"/",
+    "skip.token.refresh":[
+        "/libs/granite/csrf/token.json",
+        "/mnt/overlay/granite/ui/content/shell/header/actions/pulse.data.json"
+    ],
+    "token.samesite.cookie.attr":"Lax",
+    "token.encapsulated":true
+}
