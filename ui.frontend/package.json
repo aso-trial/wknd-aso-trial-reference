@@ -12,7 +12,6 @@
   "scripts": {
     "dev": "webpack --env dev --config ./webpack.dev.js && clientlib --verbose",
     "prod": "webpack --config ./webpack.prod.js && clientlib --verbose",
-    "build": "webpack --config ./webpack.theme.prod.js",
     "start": "webpack-dev-server --open --config ./webpack.dev.js",
     "sync": "aemsync -d -p ../ui.apps/src/main/content",
     "chokidar": "chokidar -c \"clientlib\" ./dist",
