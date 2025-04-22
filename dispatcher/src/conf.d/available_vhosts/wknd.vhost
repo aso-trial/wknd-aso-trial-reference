@@ -73,9 +73,9 @@ Include conf.d/variables/custom.vars
         # Trusted
         Header always set Access-Control-Allow-Credentials "true" "expr=reqenv('CORSTrusted') == 'true'"
         Header always set Access-Control-Allow-Origin "%{CORSTrustedOrigin}e" "expr=reqenv('CORSTrusted') == 'true'"
-        Header always set Access-Control-Allow-Methods "GET" "expr=reqenv('CORSTrusted') == 'true'"
+        Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS" "expr=reqenv('CORSTrusted') == 'true'"
         Header always set Access-Control-Max-Age 1800 "expr=reqenv('CORSTrusted') == 'true'"
-        Header always set Access-Control-Allow-Headers "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers" "expr=reqenv('CORSTrusted') == 'true'"
+        Header always set Access-Control-Allow-Headers "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization" "expr=reqenv('CORSTrusted') == 'true'"
 
         # Uncomment while debugging
         # Header always set Debug-CORSProcessing "true" "expr=reqenv('CORSProcessing') == 'true'"
@@ -120,7 +120,7 @@ Include conf.d/variables/custom.vars
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 		# Prevent clickjacking
-		Header always append X-Frame-Options SAMEORIGIN
+		Header always set Content-Security-Policy "frame-ancestors 'self' https://experience.adobe.com"
 	</Directory>
 	<Directory "${DOCROOT}">
 		AllowOverride None
