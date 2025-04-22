@@ -131,8 +131,8 @@ Include conf.d/variables/custom.vars
 		DispatcherUseProcessedURL	On
 		# Default setting to allow all errors to come from the aem instance
 		DispatcherPassError		1
-        # Log debug
-        DispatcherLogLevel 3
+		# Set dispatcher log level to debug (3)
+		DispatcherLogLevel 3
 	</IfModule>
 	<IfModule mod_rewrite.c>
 		RewriteEngine	on
