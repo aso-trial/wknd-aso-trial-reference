@@ -1,6 +1,9 @@
 <div class="cmp-embed">
+  <sly data-sly-use.encoder="com.adobe.aem.guides.wknd.core.models.ExperimentDataEncoder" />
+  <sly data-sly-set.cfDataHashParam="${encoder.encodeForUrl}" />
+
   <iframe 
-    src="${properties.url}"
+    src="${properties.url}#ue-data=${cfDataHashParam}"
     width="100%" 
     height="100%" 
     style="border:0;" 
