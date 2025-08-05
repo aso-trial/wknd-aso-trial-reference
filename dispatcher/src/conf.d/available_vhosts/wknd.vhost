@@ -51,7 +51,7 @@ Include conf.d/variables/custom.vars
         # Developer Localhost
         SetEnvIfExpr "env('CORSProcessing') == 'true' && req_novary('Origin') =~ m#(http://localhost(:\d+)?$)#" CORSTrusted=true
         # Adobe AppBuilder
-        SetEnvIfExpr "env('CORSProcessing') == 'true' && req_novary('Origin') =~ m#(https://experience\.adobe\.com$)#" CORSTrusted=true          
+        SetEnvIfExpr "env('CORSProcessing') == 'true' && req_novary('Origin') =~ m#(https://experience(-stage)?\.adobe\.com$)#" CORSTrusted=true
         # Developer Vercel app
         SetEnvIfExpr "env('CORSProcessing') == 'true' && req_novary('Origin') =~ m#(https://.*\.vercel\.app$)#" CORSTrusted=true
         # Developer Github.io app

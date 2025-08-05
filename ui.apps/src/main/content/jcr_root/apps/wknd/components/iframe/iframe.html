@@ -3,12 +3,12 @@
   <sly data-sly-set.cfDataHashParam="${encoder.encodeForUrl}" />
 
   <iframe 
-    src="${properties.url}#ue-data=${cfDataHashParam}"
-    width="100%" 
-    height="100%" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+  src="${properties.url}#ue-data=${cfDataHashParam}"
+  width="100%" 
+  height="100%" 
+  style="border:0;" 
+  allowfullscreen="" 
+  sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation allow-pointer-lock"
+  referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
 </div>
