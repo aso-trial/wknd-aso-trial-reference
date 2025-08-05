@@ -11,6 +11,7 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.day.cq.commons.Externalizer;
 
 import javax.annotation.PostConstruct;
 import java.net.URLEncoder;
@@ -100,7 +101,9 @@ public class ExperimentDataEncoder {
     private String getImsToken() {
         if (request != null) {
             String authHeader = request.getHeader("authorization");
-            return authHeader != null ? authHeader : "";
+            if (authHeader != null && authHeader.toLowerCase().startsWith("bearer ")) {
+                return authHeader.substring("bearer ".length());
+            }
         }
         return "";
     }
@@ -122,8 +125,9 @@ public class ExperimentDataEncoder {
      * @return Current page path or empty string
      */
     private String getPageUrl() {
+        String url = "";
         if (request == null) {
-            return "";
+            url = "";
         }
         String requestUrl = request.getRequestURL().toString();
         String queryString = request.getQueryString();
@@ -148,10 +152,27 @@ public class ExperimentDataEncoder {
         }
         int pathEnd = fullUrl.indexOf('?', pathStart);
         if (pathEnd == -1) {
-            return fullUrl.substring(pathStart);
+            url = fullUrl.substring(pathStart);
         } else {
-            return fullUrl.substring(pathStart, pathEnd);
+            url = fullUrl.substring(pathStart, pathEnd);
         }
+        // Use AEM Externalizer to create the externalized URL
+        String externalizedUrl = url;
+        try {
+            Externalizer externalizer = request.getResourceResolver()
+                .adaptTo(Externalizer.class);
+            if (externalizer != null) {
+                externalizedUrl = externalizer.externalLink(
+                    request.getResourceResolver(),
+                    "publish",
+                    url.startsWith("/") ? url : "/" + url
+                );
+            }
+        } catch (Exception e) {
+            // fallback to original url if externalizer fails
+            externalizedUrl = url;
+        }
+        return externalizedUrl;
     }
     
     /**
@@ -221,64 +242,4 @@ public class ExperimentDataEncoder {
         return jsonData != null ? jsonData : "";
     }
     
-    /**
-     * Alternative approach: Get IMS access token using Service Account credentials
-     * This approach is suitable for server-to-server communication, not for current user context.
-     * 
-     * NOTE: This is commented out as it requires service account credentials and additional dependencies.
-     * Uncomment and configure only if you need service-to-service authentication.
-     * 
-     * Required dependencies in pom.xml:
-     * - JWT library (io.jsonwebtoken:jjwt)
-     * - HTTP client libraries
-     * 
-     * @return Access token for service account authentication
-     */
-    /*
-    private String getServiceAccountAccessToken() {
-        try {
-            // Load service credentials from OSGi configuration or environment variables
-            String clientId = getServiceCredential("client_id");
-            String clientSecret = getServiceCredential("client_secret");
-            String technicalAccountId = getServiceCredential("technical_account_id");
-            String orgId = getServiceCredential("ims_org_id");
-            String privateKey = getServiceCredential("private_key");
-            
-            if (clientId == null || clientSecret == null || technicalAccountId == null || 
-                orgId == null || privateKey == null) {
-                LOG.error("Missing service account credentials");
-                return "";
-            }
-            
-            // Create JWT token
-            String jwtToken = createJWTToken(clientId, technicalAccountId, orgId, privateKey);
-            
-            // Exchange JWT for access token
-            return exchangeJWTForAccessToken(jwtToken, clientId, clientSecret);
-            
-        } catch (Exception e) {
-            LOG.error("Error getting service account access token", e);
-            return "";
-        }
-    }
-    
-    private String getServiceCredential(String key) {
-        // Implementation depends on how you store credentials
-        // Options: OSGi configuration, environment variables, Cloud Manager secret variables
-        // For AEMCS, use Cloud Manager secret variables: System.getenv(key)
-        return System.getenv(key.toUpperCase());
-    }
-    
-    private String createJWTToken(String clientId, String technicalAccountId, String orgId, String privateKey) {
-        // JWT creation logic - requires JWT library
-        // This is a placeholder - actual implementation requires proper JWT creation
-        return "jwt_token_placeholder";
-    }
-    
-    private String exchangeJWTForAccessToken(String jwtToken, String clientId, String clientSecret) {
-        // HTTP POST to https://ims-na1.adobelogin.com/ims/exchange/jwt
-        // This is a placeholder - actual implementation requires HTTP client
-        return "access_token_placeholder";
-    }
-    */
 }

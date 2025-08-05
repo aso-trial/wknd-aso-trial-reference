@@ -1,0 +1,7 @@
+{
+  "externalizer.domains": [
+    "local http://localhost:4502",
+    "author https://author-p128720-e1471871.adobeaemcloud.com",
+    "publish https://publish-p128720-e1471871.adobeaemcloud.com"
+  ]
+}
