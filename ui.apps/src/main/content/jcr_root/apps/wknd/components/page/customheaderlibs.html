@@ -20,6 +20,43 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Asar&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
 
+
+
+<!-- EXPERIMENT LIB -->
+<sly data-sly-test="${properties.experimentActive}"> 
+    <!-- EXPERIMENTATION ATTRIBUTES -->
+    <meta name="experiment" content="${properties.experimentId}">
+    <meta name="experiment-status" content="${properties.experimentActive ? 'active' : ''}">
+    <meta name="experiment-cssselector" content="${properties.experimentCssSelector}">
+    <meta name="experiment-prodHost" content="${properties.experimentProdDomain}">
+    <meta name="experiment-start-date" content="${'MM/dd/yyyy' @ format=properties.experimentStartDate}">
+    <meta name="experiment-end-date" content="${'MM/dd/yyyy' @ format=properties.experimentEndDate}">
+    <meta name="experiment-split" content="${properties.experimentSplit}">
+    <meta name="experiment-variants" content="${properties.experimentVariant}">
+    <meta name="experiment-audience" content="${properties.experimnentDevice}">
+    <!-- EXPERIMENTATION ATTRIBUTES -->
+
+    <script>
+
+    window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
+    window.AUDIENCES = {
+        'hersheysAudience': () => {
+            try {
+                const params = new URLSearchParams(document.location.search);
+                return (window.innerWidth < 600) && 
+                params.get('utm_source') === 'meta' && params.get('utm_medium') === 'paid-social' && params.get('utm_campaign') === 'reeses|pbj';
+            } catch (e) {
+                return false;
+            }
+        }
+    };
+    </script>
+
+    <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+    data-sly-call="${clientlib.js @ categories='experimentation'}"/>
+ </sly>    
+<!-- EXPERIMENT --> 
+
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
 
