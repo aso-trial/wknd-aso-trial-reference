@@ -25,11 +25,10 @@
     
     <!--/* Generate absolute canonical URL */-->
     <sly data-sly-test.canonicalPath="${head.canonicalUrl || currentPage.path}">
-        <!--/* Always use production domain for canonical URLs */-->
         <link rel="canonical" href="https://wknd.site${canonicalPath @ extension='html'}"/>
     </sly>
     
-    <!--/* Alternate language links with absolute URLs */-->
+    <!--/* Alternate language links */-->
     <sly data-sly-repeat.alternateLanguage="${head.alternateLanguageLinks}">
         <sly data-sly-test.altPath="${alternateLanguage.href}">
             <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
@@ -37,7 +36,7 @@
         </sly>
     </sly>
     
-    <!--/* Page policies */-->
+    <!--/* Headlibs */-->
     <sly data-sly-include="/libs/wcm/foundation/components/page/head.html"/>
     <sly data-sly-call="${headlibRenderer.headlibs @ designPath = currentDesign.path}"/>
     <sly data-sly-include="customheaderlibs.html"/>
