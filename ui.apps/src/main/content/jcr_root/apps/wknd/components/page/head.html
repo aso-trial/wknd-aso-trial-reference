@@ -1,0 +1,44 @@
+<!--/*
+    Copyright 2025 Adobe Systems Incorporated
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<!--/* Override head.html to generate absolute canonical URLs */-->
+<sly data-sly-use.head="com.adobe.cq.wcm.core.components.models.Page" 
+     data-sly-use.headlibRenderer="headlib.html">
+    <meta charset="UTF-8"/>
+    <title>${head.title}</title>
+    <meta data-sly-test="${head.description}" name="description" content="${head.description}"/>
+    <meta data-sly-test="${head.keywords}" name="keywords" content="${head.keywords}"/>
+    <meta name="template" content="${currentDesign.path}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <!--/* Generate absolute canonical URL */-->
+    <sly data-sly-test.canonicalPath="${head.canonicalUrl || currentPage.path}">
+        <link rel="canonical" href="https://wknd.site${canonicalPath @ extension='html'}"/>
+    </sly>
+    
+    <!--/* Alternate language links */-->
+    <sly data-sly-repeat.alternateLanguage="${head.alternateLanguageLinks}">
+        <sly data-sly-test.altPath="${alternateLanguage.href}">
+            <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
+                  href="https://wknd.site${altPath @ extension='html'}"/>
+        </sly>
+    </sly>
+    
+    <!--/* Headlibs */-->
+    <sly data-sly-include="/libs/wcm/foundation/components/page/head.html"/>
+    <sly data-sly-call="${headlibRenderer.headlibs @ designPath = currentDesign.path}"/>
+    <sly data-sly-include="customheaderlibs.html"/>
+    <sly data-sly-test="${head.appResourcesPath}" data-sly-call="${headlibRenderer.headlibs @ designPath = head.appResourcesPath}"/>
+</sly>
