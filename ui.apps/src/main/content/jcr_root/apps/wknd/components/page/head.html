@@ -23,16 +23,34 @@
     <meta name="template" content="${currentDesign.path}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
-    <!--/* Generate absolute canonical URL */-->
+    <!--/* Generate absolute canonical URL dynamically */-->
     <sly data-sly-test.canonicalPath="${head.canonicalUrl || currentPage.path}">
-        <link rel="canonical" href="https://wknd.site${canonicalPath @ extension='html'}"/>
+        <!--/* Build absolute URL from current request */-->
+        <sly data-sly-test.scheme="${request.scheme || 'https'}">
+            <sly data-sly-test.serverName="${request.serverName}">
+                <sly data-sly-test.serverPort="${request.serverPort}">
+                    <!--/* Only include port if non-standard */-->
+                    <sly data-sly-test.portString="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443) ? ':' + serverPort : ''}">
+                        <link rel="canonical" href="${scheme}://${serverName}${portString}${canonicalPath @ extension='html'}"/>
+                    </sly>
+                </sly>
+            </sly>
+        </sly>
     </sly>
     
-    <!--/* Alternate language links */-->
+    <!--/* Alternate language links with dynamic domain */-->
     <sly data-sly-repeat.alternateLanguage="${head.alternateLanguageLinks}">
         <sly data-sly-test.altPath="${alternateLanguage.href}">
-            <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
-                  href="https://wknd.site${altPath @ extension='html'}"/>
+            <sly data-sly-test.scheme="${request.scheme || 'https'}">
+                <sly data-sly-test.serverName="${request.serverName}">
+                    <sly data-sly-test.serverPort="${request.serverPort}">
+                        <sly data-sly-test.portString="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443) ? ':' + serverPort : ''}">
+                            <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
+                                  href="${scheme}://${serverName}${portString}${altPath @ extension='html'}"/>
+                        </sly>
+                    </sly>
+                </sly>
+            </sly>
         </sly>
     </sly>
     
