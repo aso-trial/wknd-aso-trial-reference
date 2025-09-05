@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
-    jcr:primaryType="nt:unstructured"
-    sling:resourceType="wknd/components/iframe"
-    altText="Remote Micro-Frontend"
-    blockExternalContent="{Boolean}false"
-    title="Remote MFE"
-    imsOrg="46D01E066502B0AC0A495F9F@AdobeOrg"
-    url="https://experience-stage.adobe.com/solutions/ExpSuccess-aem-experimentation-mfe/static-assets/resources/ue.html"/>
