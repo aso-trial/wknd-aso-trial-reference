@@ -30,8 +30,11 @@
             <sly data-sly-test.serverName="${request.serverName}">
                 <sly data-sly-test.serverPort="${request.serverPort}">
                     <!--/* Only include port if non-standard */-->
-                    <sly data-sly-test.portString="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443) ? ':' + serverPort : ''}">
-                        <link rel="canonical" href="${scheme}://${serverName}${portString}${canonicalPath @ extension='html'}"/>
+                    <sly data-sly-test.isNonStandardPort="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443)}">
+                        <link rel="canonical" href="${scheme}://${serverName}:${serverPort}${canonicalPath @ extension='html'}"/>
+                    </sly>
+                    <sly data-sly-test="${!isNonStandardPort}">
+                        <link rel="canonical" href="${scheme}://${serverName}${canonicalPath @ extension='html'}"/>
                     </sly>
                 </sly>
             </sly>
@@ -44,9 +47,13 @@
             <sly data-sly-test.scheme="${request.scheme || 'https'}">
                 <sly data-sly-test.serverName="${request.serverName}">
                     <sly data-sly-test.serverPort="${request.serverPort}">
-                        <sly data-sly-test.portString="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443) ? ':' + serverPort : ''}">
+                        <sly data-sly-test.isNonStandardPort="${(scheme == 'http' && serverPort != 80) || (scheme == 'https' && serverPort != 443)}">
                             <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
-                                  href="${scheme}://${serverName}${portString}${altPath @ extension='html'}"/>
+                                  href="${scheme}://${serverName}:${serverPort}${altPath @ extension='html'}"/>
+                        </sly>
+                        <sly data-sly-test="${!isNonStandardPort}">
+                            <link rel="alternate" hreflang="${alternateLanguage.hreflang}" 
+                                  href="${scheme}://${serverName}${altPath @ extension='html'}"/>
                         </sly>
                     </sly>
                 </sly>
