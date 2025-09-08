@@ -1,0 +1,10 @@
+kind: "API"
+version: "1"
+metadata:
+  envTypes: [ "dev","stage","prod" ]
+data:
+  allowedClientIDs:
+    author:
+      - "aem-sites-mystique"
+      - "aem-sites-contentapi"
+      - "aem-sites-contentapi-demo"
