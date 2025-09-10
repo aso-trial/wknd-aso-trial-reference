@@ -14,6 +14,9 @@ Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-
 RewriteCond %{HTTP_HOST} www.wknd.site [NC]
 RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
+# Vanity mapping for /wknd-... to ASO content (before generic rewrite)
+RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
+
 # redirect all root traffic to US home page
 RewriteCond %{REQUEST_URI} ^/?$
 RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
@@ -28,5 +31,6 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
+RewriteCond %{REQUEST_URI} !^/wknd-.*
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
