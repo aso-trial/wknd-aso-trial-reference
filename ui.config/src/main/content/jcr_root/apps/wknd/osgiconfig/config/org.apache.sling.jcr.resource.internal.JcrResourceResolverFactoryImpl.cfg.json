@@ -1,6 +1,6 @@
 {
   "resource.resolver.mapping": [
-    "/content/wknd/</", "/:/", "/content/ASO/wknd-$1:/wknd-(.*)$"
+    "/:/", "/content/ASO/wknd-$1:/wknd-(.*)$"
   ]
 }
 
