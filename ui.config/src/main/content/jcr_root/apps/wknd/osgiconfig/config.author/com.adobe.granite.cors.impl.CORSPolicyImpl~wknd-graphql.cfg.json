@@ -1,6 +1,8 @@
 {
     "alloworigin":[
-      ""
+      "http://localhost:.*",
+      "https://.*\\.adobe\\.com",
+      "https://experience\\.adobe\\.com"
     ],
     "alloworiginregexp":[
       "http://localhost:.*"
