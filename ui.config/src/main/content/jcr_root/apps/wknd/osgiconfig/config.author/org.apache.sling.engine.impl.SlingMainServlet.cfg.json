@@ -1,0 +1,5 @@
+{
+    "sling.additional.response.headers": [
+      "Content-Security-Policy=frame-ancestors 'self' https://experience.adobe.com"
+    ]
+  }
