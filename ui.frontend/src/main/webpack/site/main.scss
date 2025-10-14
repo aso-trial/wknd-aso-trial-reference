@@ -6,6 +6,9 @@
 /* Elements */
 @import './elements.scss';
 
+/* CWV ISSUE: Layout shift problems */
+@import './cwv-layout-issues.scss';
+
 /* Components */
 @import '../components/accordion/scss/accordion.scss';
 @import '../components/breadcrumb/scss/breadcrumb.scss';
