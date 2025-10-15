@@ -38,4 +38,4 @@ $include "./default_filters.any"
 
 /0201 { /type "allow" /url "/home/users/*.infinity.json" }
 
-/0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-redirect-*" }
+/0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }
