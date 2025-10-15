@@ -14,6 +14,9 @@ Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-
 RewriteCond %{HTTP_HOST} www.wknd.site [NC]
 RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
+# Pass through /wknd-redirect-... URLs unchanged
+RewriteRule ^/wknd-redirect-(.*)$ /wknd-redirect-$1 [PT,L]
+
 # Vanity mapping for /wknd-... to ASO content (before generic rewrite)
 RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
 
