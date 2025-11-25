@@ -181,6 +181,83 @@
                             text="Read More"/>
                     </actions>
                 </teaser_copy>
+                <container_newsletter
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/form/container"
+                    action="/content/usergenerated/wknd/newsletter"
+                    id="newsletter-form"
+                    actionType="foundation/components/form/actions/store">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Newsletter"
+                        name="title"
+                        sling:resourceType="wknd/components/title"
+                        type="h2" />
+                    <firstName
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="First Name"
+                        name="firstName"
+                        sling:resourceType="wknd/components/form/text"
+                        type="text"
+                        required="{Boolean}false"
+                        rows="1" />
+                    <email
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email Address"
+                        name="email"
+                        sling:resourceType="wknd/components/form/text"
+                        type="email"
+                        required="{Boolean}true"
+                        rows="1" />
+                    <interests
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Choose Your Interests"
+                        name="interests"
+                        sling:resourceType="wknd/components/form/options"
+                        type="checkbox"
+                        required="{Boolean}false"
+                        helpMessage="Select the topics you want to receive updates about.">
+
+                        <items jcr:primaryType="nt:unstructured">
+                            <item1 jcr:primaryType="nt:unstructured" text="Adventures" value="adventures"/>
+                            <item2 jcr:primaryType="nt:unstructured" text="Travel Tips" value="travel"/>
+                            <item3 jcr:primaryType="nt:unstructured" text="Photography" value="photography"/>
+                            <item4 jcr:primaryType="nt:unstructured" text="Fitness &amp; Lifestyle" value="lifestyle"/>
+                            <item5 jcr:primaryType="nt:unstructured" text="Stories &amp; Interviews" value="stories"/>
+                        </items>
+                    </interests>
+                    <consent
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email Consent"
+                        name="consent"
+                        sling:resourceType="wknd/components/form/options"
+                        type="checkbox"
+                        required="{Boolean}true"
+                        helpMessage="You must agree to receive the newsletter.">
+
+                        <items jcr:primaryType="nt:unstructured">
+                            <item1 jcr:primaryType="nt:unstructured"
+                                text="I agree to receive the WKND newsletter and understand I can unsubscribe anytime."
+                                value="agree" />
+                        </items>
+                    </consent>
+                    <pagePath
+                        jcr:primaryType="nt:unstructured"
+                        name="pagePath"
+                        sling:resourceType="wknd/components/form/hidden"
+                        value="${currentPage.path}" />
+
+                    <articleTitle
+                        jcr:primaryType="nt:unstructured"
+                        name="articleTitle"
+                        sling:resourceType="wknd/components/form/hidden"
+                        value="${currentPage.title}" />
+                    <submit
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/form/button"
+                        jcr:title="Join the Adventure"
+                        type="submit" />
+                </container_newsletter>
             </container>
         </root>
     </jcr:content>
