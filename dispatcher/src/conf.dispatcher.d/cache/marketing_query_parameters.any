@@ -37,3 +37,5 @@
 /1060 { /glob "fbclid" /type "allow" } # Facebook click identifier
 
 /1070 { /glob "twclid" /type "allow" } # Twitter click identifier
+
+/1071 { /glob "*us/en-word*" /type "deny" }
