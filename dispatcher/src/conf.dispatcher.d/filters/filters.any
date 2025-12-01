@@ -37,4 +37,4 @@ $include "./default_filters.any"
 /0200 { /type "allow" /url "*/contexthub.pagedata.json" }
 /0201 { /type "allow" /url "/home/users/*.infinity.json" }
 
-/0202 { /type "deny" /glob "*us/en-word*"  }
+/0202 { /type "deny" /url "*us/en-word*" }
