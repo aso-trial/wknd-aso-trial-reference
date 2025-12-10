@@ -1,4 +1,4 @@
-#
+##
 # This file contains the filter ACL, and can be customized.
 #
 # By default, it includes the default filter ACL.
@@ -36,5 +36,8 @@ $include "./default_filters.any"
 # ContextHub
 /0200 { /type "allow" /url "*/contexthub.pagedata.json" }
 /0201 { /type "allow" /url "/home/users/*.infinity.json" }
+
+# Allow /us/en-word.html (fix for 404 issue)
+/0203 { /type "allow" /url "/us/en-word.html" }
 
 /0202 { /type "deny" /url "*us/en-word*" }
