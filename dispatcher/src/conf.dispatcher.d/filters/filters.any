@@ -38,3 +38,7 @@ $include "./default_filters.any"
 /0201 { /type "allow" /url "/home/users/*.infinity.json" }
 
 /0202 { /type "deny" /url "*us/en-word*" }
+
+# Allow /us/en-word.html (fix for 404 - overrides /0202)
+/0203 { /type "allow" /url "/us/en-word.html" }
+
