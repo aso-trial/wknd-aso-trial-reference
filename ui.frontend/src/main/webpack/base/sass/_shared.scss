@@ -18,6 +18,9 @@
  @import 'mixins';
  @import 'wkndicons';
  @import 'grid';
+ 
+ /* CWV ISSUE: Font loading problems */
+ @import 'cwv-font-issues';
 
  .chevron::before {
 	border-style: solid;
