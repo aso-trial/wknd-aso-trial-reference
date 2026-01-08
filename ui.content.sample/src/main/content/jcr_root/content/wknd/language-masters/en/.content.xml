@@ -257,6 +257,70 @@
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wknd/components/separator"/>
+                    <container_contactus
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wknd/components/form/container"
+                        action="/content/usergenerated/wknd/language-masters/en/adventures"
+                        id="contact-us-form"
+                        actionType="foundation/components/form/actions/store">
+                        <title
+                            jcr:primaryType="nt:unstructured"
+                            jcr:createdBy="admin"
+                            jcr:title="Contact Us"
+                            jcr:lastModifiedBy="admin"
+                            jcr:created="Tue Nov 25 2025 18:12:04 GMT+0530"
+                            type="h1"
+                            linkTarget="_self"
+                            jcr:lastModified="Tue Nov 25 2025 18:12:38 GMT+0530"
+                            sling:resourceType="wknd/components/title"/>
+                        <reason
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Reason for Contact"
+                            name="reason"
+                            required="{Boolean}true"
+                            sling:resourceType="wknd/components/form/options"
+                            helpMessage="Pick the category that best matches your question or request."
+                            type="drop-down">
+
+                            <items jcr:primaryType="nt:unstructured">
+                                <item1 jcr:primaryType="nt:unstructured" text="General Inquiry" value="general"/>
+                                <item2 jcr:primaryType="nt:unstructured" text="Adventure Booking" value="booking"/>
+                                <item3 jcr:primaryType="nt:unstructured" text="Partnership / Sponsorship" value="partnership"/>
+                                <item4 jcr:primaryType="nt:unstructured" text="Event Participation" value="event"/>
+                                <item5 jcr:primaryType="nt:unstructured" text="Media / Press" value="media"/>
+                                <item6 jcr:primaryType="nt:unstructured" text="Support" value="support"/>
+                            </items>
+                        </reason>
+                        <name
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Full Name"
+                            name="name"
+                            type="text"
+                            sling:resourceType="wknd/components/form/text"
+                            required="{Boolean}true"
+                            rows="1" />
+                        <email
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Email Address"
+                            name="email"
+                            type="email"
+                            sling:resourceType="wknd/components/form/text"
+                            required="{Boolean}true"
+                            rows="1" />
+                        <phone
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Phone Number"
+                            name="phone"
+                            type="text"
+                            sling:resourceType="wknd/components/form/phone"
+                            required="{Boolean}false"
+                            rows="1" />
+                        <submit
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wknd/components/form/button"
+                            type="submit"
+                            jcr:title="Submit" />
+                    </container_contactus>
                 </container_1679842506>
             </container>
         </root>
