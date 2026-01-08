@@ -1,0 +1,344 @@
+// Options Component - Base Styles
+.cmp-form-options {
+  margin: 10px 0;
+  font-family: $font-family-sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: none;
+  padding: 0;
+}
+
+// Dropdown Specific Styles
+.cmp-form-options--drop-down {
+  width: 100%;
+}
+
+// Label Styles
+.cmp-form-options__label {
+  display: block;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semi-bold;
+  margin-bottom: 12px;
+  color: $text-color;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+// Legend Styles (for radio/checkbox groups)
+.cmp-form-options__legend {
+  display: block;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semi-bold;
+  margin-bottom: 12px;
+  color: $text-color;
+  letter-spacing: 0.3px;
+  padding: 0;
+}
+
+// Select Field - Base Styles (for dropdowns only)
+select.cmp-form-options__field {
+  border: 2px solid $gray-light;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-semi-bold;
+  height: 48px;
+  padding: 0 2.5rem 0 1.2rem;
+  width: 100%;
+  font-family: $font-family-sans-serif;
+  transition: all 0.3s ease;
+  background-color: $white;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  letter-spacing: 0.3px;
+  
+  // Custom dropdown arrow
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+
+  &:hover {
+    border-color: lighten($blue, 20%);
+    background-color: lighten($blue, 45%);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $blue;
+    box-shadow: 0 0 0 3px rgba($blue, 0.15);
+    background-color: $white;
+  }
+
+  &:disabled {
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    opacity: 0.6;
+    
+    &:hover {
+      border-color: $gray-light;
+      background-color: $gray-lighter;
+    }
+  }
+
+  &[aria-invalid="true"] {
+    border-color: $pink;
+    animation: shake 0.4s ease;
+  }
+
+  option {
+    padding: 10px;
+    font-weight: $font-weight-normal;
+    
+    &:disabled {
+      color: $gray;
+    }
+  }
+}
+
+// Dropdown Specific Field Styles
+select.cmp-form-options__field--drop-down {
+  color: $text-color;
+  
+  &:focus {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230000FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  }
+}
+
+// Multi-select Dropdown
+.cmp-form-options__multi-drop-down-field {
+  height: auto;
+  min-height: 120px;
+  padding: 0.5rem;
+  
+  option {
+    padding: 8px;
+    margin: 2px 0;
+    border-radius: 4px;
+    
+    &:checked {
+      background: linear-gradient(90deg, $blue, lighten($blue, 10%));
+      color: $white;
+    }
+  }
+}
+
+.cmp-form-options__help-message {
+  display: block;
+  font-size: $font-size-xsmall;
+  color: #787878;
+  margin-top: 8px;
+  font-family: $font-family-sans-serif;
+  font-style: italic;
+  padding-left: 4px;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+
+  &::before {
+    content: 'ℹ️';
+    margin-right: 6px;
+    font-style: normal;
+  }
+}
+
+.cmp-form-options__field-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: $font-size-small;
+  font-weight: $font-weight-normal;
+  color: $text-color;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-left: 32px;
+
+  &:hover {
+    color: $blue;
+  }
+
+  input {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    
+    &:focus {
+      outline: 2px solid $blue;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Checkbox Specific
+.cmp-form-options__field--checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $gray-light;
+  border-radius: 4px;
+  background-color: $white;
+  background-image: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    border-color: $blue;
+    background-color: $white;
+  }
+
+  &:checked {
+    background-color: $blue;
+    border-color: $blue;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:disabled {
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// Radio Specific
+.cmp-form-options__field--radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $gray-light;
+  border-radius: 50%;
+  background-color: $white;
+  background-image: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    border-color: $blue;
+    background-color: $white;
+  }
+
+  &:checked {
+    border-color: $blue;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $blue;
+    }
+  }
+
+  &:disabled {
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// Field Description
+.cmp-form-options__field-description {
+  display: block;
+  font-size: $font-size-xsmall;
+  color: $gray;
+  margin-top: 4px;
+  margin-left: 16px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+// Animations
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+// Error State
+.cmp-form-options__error-message {
+  display: block;
+  font-size: $font-size-xsmall;
+  color: $pink;
+  margin-top: 8px;
+  font-weight: $font-weight-semi-bold;
+  font-family: $font-family-sans-serif;
+  padding: 8px 12px;
+  background-color: lighten($pink, 45%);
+  border-left: 3px solid $pink;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease;
+  
+  &::before {
+    content: '⚠️';
+    margin-right: 8px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Required Indicator
+.cmp-form-options__required {
+  color: $pink;
+  margin-left: 4px;
+  font-size: 16px;
+  vertical-align: top;
+}
+
+// Responsive Design
+@media (max-width: $screen-small) {
+  .cmp-form-options__field {
+    font-size: $font-size-small;
+    padding: 0 2rem 0 1rem;
+    background-size: 1em;
+  }
+  
+  .cmp-form-options__label,
+  .cmp-form-options__legend {
+    font-size: $font-size-xsmall;
+    margin-bottom: 8px;
+  }
+}
+

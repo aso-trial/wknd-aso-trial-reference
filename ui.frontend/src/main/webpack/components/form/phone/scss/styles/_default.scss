@@ -1,0 +1,237 @@
+.cmp-form-phone {
+  margin: 10px 0;
+  font-family: $font-family-sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cmp-form-phone__label {
+  display: block;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semi-bold;
+  margin-bottom: 12px;
+  color: $text-color;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.cmp-form-phone__required {
+  color: $pink;
+  margin-left: 4px;
+  font-size: 16px;
+  vertical-align: top;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.cmp-form-phone__wrapper {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $blue, $yellow);
+    transition: width 0.4s ease;
+    border-radius: 2px;
+  }
+  
+  @media (max-width: $screen-small) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.cmp-form-phone__country-code {
+  border: 2px solid $gray-light;
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+  box-sizing: border-box;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
+  height: 48px;
+  padding: 0 1rem;
+  width: 120px;
+  background-color: $white;
+  cursor: pointer;
+  font-family: $font-family-sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: $gray;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    border-color: $blue;
+    
+    &::after {
+      color: $blue;
+    }
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $blue;
+    border-right: none;
+    
+    &::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  
+  &:disabled {
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    opacity: 0.6;
+    
+    &:hover {
+      border-color: $gray-light;
+    }
+  }
+  
+  @media (max-width: $screen-small) {
+    width: 100%;
+    border-radius: 8px;
+    border-right: 2px solid $gray-light;
+  }
+}
+
+.cmp-form-phone__number {
+  border: 2px solid $gray-light;
+  border-radius: 0 8px 8px 0;
+  box-sizing: border-box;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-semi-bold;
+  height: 48px;
+  padding: 0 1.2rem;
+  flex: 1;
+  font-family: $font-family-sans-serif;
+  transition: all 0.3s ease;
+  background-color: $white;
+  letter-spacing: 0.5px;
+  
+  &:hover {
+    border-color: lighten($blue, 30%);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $blue;
+  }
+  
+  &::placeholder {
+    color: $gray;
+    font-weight: $font-weight-normal;
+    font-style: italic;
+    letter-spacing: normal;
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    opacity: 0.6;
+    
+    &:hover {
+      border-color: $gray-light;
+    }
+  }
+  
+  &[aria-invalid="true"] {
+    border-color: $pink;
+    animation: shake 0.4s ease;
+  }
+  
+  @media (max-width: $screen-small) {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.cmp-form-phone__number--error {
+  border-color: $pink;
+}
+
+.cmp-form-phone__help-block {
+  display: block;
+  font-size: $font-size-xsmall;
+  color: $gray;
+  margin-top: 8px;
+  font-family: $font-family-sans-serif;
+  font-style: italic;
+  padding-left: 4px;
+  transition: color 0.3s ease;
+  
+  &::before {
+    content: 'ℹ️';
+    margin-right: 6px;
+    font-style: normal;
+  }
+}
+
+.cmp-form-phone__error-block {
+  display: block;
+  font-size: $font-size-xsmall;
+  color: $pink;
+  margin-top: 8px;
+  font-weight: $font-weight-semi-bold;
+  font-family: $font-family-sans-serif;
+  padding: 8px 12px;
+  background-color: lighten($pink, 45%);
+  border-left: 3px solid $pink;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease;
+  
+  &::before {
+    content: '⚠️';
+    margin-right: 8px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

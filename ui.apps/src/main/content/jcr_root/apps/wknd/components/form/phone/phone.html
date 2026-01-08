@@ -1,0 +1,100 @@
+<!--/*
+    Copyright 2018 Adobe Systems Incorporated
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+
+<!--/* Phone Number Form Component for WKND Site */-->
+
+<sly data-sly-use.formText="core/wcm/components/form/text/v2/text/text.html"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.form.Text"/>
+
+<div class="cmp-form-phone" data-cmp-hook-form-phone="${component.id}">
+    
+    <label class="cmp-form-phone__label" for="${component.id}">
+        ${component.title @ context='html'}
+        <span class="cmp-form-phone__required" data-sly-test="${component.required}">*</span>
+    </label>
+    
+    <div class="cmp-form-phone__wrapper">
+        <select class="cmp-form-phone__country-code" 
+                name="${component.name}_countryCode"
+                id="${component.id}_countryCode"
+                data-cmp-hook-phone="countryCode"
+                required="${component.required}"
+                disabled="${component.readOnly}">
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <option value="+91">+91</option>
+            <option value="+61">+61</option>
+            <option value="+81">+81</option>
+            <option value="+86">+86</option>
+            <option value="+49">+49</option>
+            <option value="+33">+33</option>
+            <option value="+39">+39</option>
+            <option value="+34">+34</option>
+            <option value="+7">+7</option>
+            <option value="+52">+52</option>
+            <option value="+55">+55</option>
+            <option value="+27">+27</option>
+            <option value="+82">+82</option>
+            <option value="+62">+62</option>
+            <option value="+66">+66</option>
+            <option value="+31">+31</option>
+            <option value="+46">+46</option>
+            <option value="+47">+47</option>
+            <option value="+45">+45</option>
+            <option value="+41">+41</option>
+            <option value="+43">+43</option>
+            <option value="+32">+32</option>
+            <option value="+48">+48</option>
+            <option value="+20">+20</option>
+            <option value="+971">+971</option>
+            <option value="+65">+65</option>
+            <option value="+852">+852</option>
+            <option value="+64">+64</option>
+        </select>
+        
+        <input type="tel" 
+               class="cmp-form-phone__number"
+               name="${component.name}"
+               id="${component.id}"
+               data-cmp-hook-phone="number"
+               placeholder="${component.helpMessage @ context='attribute'}"
+               value="${component.value @ context='attribute'}"
+               required="${component.required}"
+               readonly="${component.readOnly}"
+               aria-invalid="${!component.valid}"
+               aria-describedby="${component.id}_helpBlock ${component.id}_errorBlock"/>
+    </div>
+    
+    <input type="hidden" 
+           name="${component.name}_fullNumber" 
+           data-cmp-hook-phone="fullNumber"
+           id="${component.id}_fullNumber"/>
+    
+    <span class="cmp-form-phone__help-block" 
+          id="${component.id}_helpBlock"
+          data-sly-test="${component.helpMessage}">
+        ${component.helpMessage @ context='html'}
+    </span>
+    
+    <span class="cmp-form-phone__error-block" 
+          id="${component.id}_errorBlock"
+          role="alert"
+          style="display: none;">
+        Please enter a valid phone number
+    </span>
+    
+</div>
+
