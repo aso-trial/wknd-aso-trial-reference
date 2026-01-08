@@ -89,44 +89,4 @@ jQuery(function ($) {
     setHomeLink(HEADER_NAVIGATION_SELECTOR + ' ' + ROOT_LEVEL_NAVIGATION_SELECTOR, HEADER_CONTAINER_SELECTOR + ' ' + LOGO_SELECTOR );
     setHomeLink(FOOTER_CONTAINER_SELECTOR + ' ' + ROOT_LEVEL_NAVIGATION_SELECTOR, FOOTER_CONTAINER_SELECTOR + ' ' + LOGO_SELECTOR );
 
-    // CWV ISSUE: Heavy operations on navigation interactions
-    function addHeavyNavigationHandlers() {
-        var $navItems = $('.cmp-navigation__item');
-        
-        $navItems.on('mouseenter', function() {
-            // Heavy synchronous operation on hover - bad for INP
-            var startTime = Date.now();
-            var result = 0;
-            
-            // Block main thread for 80ms
-            while (Date.now() - startTime < 80) {
-                result += Math.random();
-            }
-            
-            // Force multiple reflows
-            $(this).css('background-color', '#f0f0f0');
-            var height = $(this).height(); // Force reflow
-            $(this).css('padding', '10px');
-            var width = $(this).width(); // Force another reflow
-            
-            console.log('Nav hover result:', result, height, width);
-        });
-        
-        $navItems.on('click', function(e) {
-            // Heavy processing before navigation
-            var allElements = $('*');
-            allElements.each(function(index) {
-                // Expensive operations
-                var computed = window.getComputedStyle(this);
-                var display = computed.display;
-                var position = computed.position;
-                
-                // Force layout for each element
-                this.offsetHeight;
-            });
-        });
-    }
-    
-    addHeavyNavigationHandlers();
-
 });
