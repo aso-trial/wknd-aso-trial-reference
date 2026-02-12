@@ -152,7 +152,7 @@ Include conf.d/variables/custom.vars
     <LocationMatch "^/etc\.clientlibs/.*\.(?i:js|css|ttf|woff2)$">
         Header set Cache-Control "max-age=2592000,stale-while-revalidate=43200,stale-if-error=43200,public,immutable" "expr=%{REQUEST_STATUS} < 400"
         Header set Age 0
-    </LocationMatch>
+    # MISSING </LocationMatch> - Developer forgot to close this block after adding new headers
     # HTML pages: Cache for 5min with background refresh 1h on browser and 12h on CDN to avoid MISS, also incl. requests with query parameter
     # Cache-Control headers will always be added so it is important to ensure that matching html pages under /content/ are intended to be public
     <LocationMatch "^/content/.*\.html$">
