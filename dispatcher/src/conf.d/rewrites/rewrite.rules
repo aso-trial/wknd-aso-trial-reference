@@ -25,7 +25,7 @@ RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
 
 # redirect all root traffic to US home page
 RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
+RewriteRule ^(/)$ /${DEFAULT_LOCALE}/en.html [R=301,L,E=cdncache]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
