@@ -42,7 +42,7 @@ Include conf.d/variables/custom.vars
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 		# Prevent clickjacking
-		Header always append X-Frame-Options SAMEORIGIN
+		Header always append X-Frame-Options SAMEORIGINS
 	</Directory>
 	<Directory "${DOCROOT}">
 		AllowOverride None
