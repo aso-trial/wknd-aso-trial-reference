@@ -6,37 +6,23 @@
 
 $include "./default_filters.any"
 
-# Allow components JSON model
-/0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
+/0100 { /type "allow" /method "GET" /url "/services/export/xf-dependencies" }
 
-# Allow manifest.webmanifest files located in the content
-/0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+/0113 { /type "allow" /method "POST" /url "/services/punchout" }
 
-# Allow Quick Search
-/0110 { /type "allow" /extension "json" /selectors "searchresults" /path "/content/*" }
+# Allow robots.txt selector
+/0114 { /type "allow" /method "GET" /path "/content/*" /selectors 'robots' /extension "txt" }
 
-# Allow j_security check for login
-/0111 { /type "allow" /method "POST" /url "/system/sling/login/j_security_check" }
+/0115 { /type "allow" /method "POST" /url "/content/cq:graphql/sunbeltrentals/endpoint.json" /extension "json" }
 
-#Allow logout path
-/0112 { /type "allow" /method "POST" /url "/system/sling/logout" }
+/0116 { /type "allow" /url "/graphql/execute.json/*"}
 
-# Allow GraphQL global endpoint & preflight requests
-# GraphQL also supports GET requests, if you intend to use GET include it in the rule below
-/0164 { /type "allow" /method '(POST|OPTIONS)' /url "/content/graphql/global/endpoint.json" /extension "json"}
-/0165 { /type "allow" /method '(POST|OPTIONS)' /url "/content/cq:graphql/wknd/endpoint.json" /extension "json"}
+/0117 { /type "allow" /method '(GET|POST)' /url "/services/logout" }
 
-# GraphQL Persisted Queries
-/0170 { /type "allow" /method '(POST|OPTIONS)' /url "/graphql/execute.json/*" }
-/0171 { /type "allow" /url "/graphql/execute.json/*" }
+/0118 { /type "allow" /extension "json" /selectors "model" /path "/content/experience-fragments/sunbeltrentals/*/genericconfigs" }
 
-# Allow to download web manifest for PWA
-/0180 { /type "allow" /extension "webmanifest" }
+/0119 { /type "allow" /extension "json" /selectors "model" /path "/content/sunbeltrentals/*/ccaconfiguration" }
 
-# ContextHub
-/0200 { /type "allow" /url "*/contexthub.pagedata.json" }
-/0201 { /type "allow" /url "/home/users/*.infinity.json" }
+/0120 { /type "allow" /method "POST" /url "/content/cq:graphql/tracker/endpoint.json" /extension "json" }
 
-/1071 { /type "deny" /url "*us/en-word*" }
-
-/0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }
+/0121 { /type "allow" /method "GET" /extension "json" /selectors "model" /path "/content/sunbeltrentals/*/myaccount/*" }

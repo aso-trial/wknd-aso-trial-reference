@@ -5,3 +5,22 @@
 #
 
 $include "./default_rules.any"
+
+/0199 {
+    /glob "*.sharedcontent.html*"
+    /type "allow"
+}
+
+/0200 {
+    /glob "*.punchout.html*"
+    /type "deny"
+}
+
+/0201 {
+    /glob "*.procuretopay.html*"
+    /type "deny"
+}
+
+/0202  { /glob "**/static/**" /type "deny"  }
+/0203  { /glob "*/static/*" /type "deny"  }
+/0204  { /glob "/static/" /type "deny"  }

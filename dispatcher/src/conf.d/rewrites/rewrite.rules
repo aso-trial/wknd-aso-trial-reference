@@ -6,37 +6,131 @@
 # the default rewrite rules.
 
 Include conf.d/rewrites/default_rewrite.rules
+# Block PROPFIND type request and revert with 403 forbidden response
+RewriteCond %{REQUEST_METHOD} ^(PROPFIND)
+RewriteRule .* - [F]
 
-# make sure the root site redirects are cache on CDN to avoid origin round-trip
-Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
+RewriteCond %{REQUEST_URI} .sharedcontent.html$
+RewriteCond %{REQUEST_URI} ^/(content|conf)
+RewriteRule ^(.*)$ $1%{ENV:DOCUMENT_URI} [PT,QSD]
 
-# redirect traffic from www to http home page
-RewriteCond %{HTTP_HOST} www.wknd.site [NC]
-RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
-# Pass through /wknd-redirect-... URLs unchanged
-RewriteRule ^/wknd-redirect-(.*)$ /wknd-redirect-$1 [PT,L]
+RewriteCond %{REQUEST_URI} .(punchout|procuretopay).html$
+RewriteCond %{REQUEST_URI} ^/content
+RewriteRule ^(.*)$ $1%{ENV:DOCUMENT_URI} [PT,QSD]
 
-# Pass through /wknd-<customerName>/redirect/... URLs unchanged
-RewriteRule ^/wknd-([^/]+)/redirect(.*)$ /wknd-$1/redirect$2 [PT,L]
+# Matches requests for /apple-touch-icon{anything}.png and rewrites to the corresponding path in clientlibs
+RewriteRule ^/apple-touch-icon(.*\.png)$ /etc.clientlibs/sunbeltrentals/clientlibs/clientlib-site/resources/apple-touch-icon$1 [PT,QSD,L]   
+RewriteRule ^/favicon.ico$ /etc.clientlibs/sunbeltrentals/clientlibs/clientlib-site/resources/icon-192x192.png [PT,QSD,L]
+RewriteRule ^/public/fonts/sunbelticons.ttf$ /etc.clientlibs/sunbeltrentals/clientlibs/clientlib-site/resources/fonts/sunbelticons-dummy.ttf [PT,QSD,L]
+RewriteRule ^/public/fonts/sunbelticons.woff$ /etc.clientlibs/sunbeltrentals/clientlibs/clientlib-site/resources/fonts/sunbelticons-dummy.woff [PT,QSD,L]
+RewriteRule ^/public/fonts/sunbelticons.woff2$ /etc.clientlibs/sunbeltrentals/clientlibs/clientlib-site/resources/fonts/sunbelticons-dummy.woff2 [PT,QSD,L]
 
-# Vanity mapping for /wknd-... to ASO content (before generic rewrite)
-RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
+Header always set Content-Security-Policy "frame-ancestors 'self' https://*.punchout2go.com/ https://*.gep.com/ https://*.ariba.com/ https://*.hubwoo.com/ https://*.sciquest.com/ https://*.tradecentric.com/"
 
-# redirect all root traffic to US home page
-RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
+#Appending /content/sunbeltrentals to Sitemap
+#Checking if the url contains sitemap and if its not starting with /content
+RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} sitemap
+RewriteRule ^/(.*).xml /content/sunbeltrentals/$1.xml [PT,QSA]
 
+#CCA mask url
+RewriteRule ^/(.*)/ccaconfiguration.json /content/sunbeltrentals/$1/cca/jcr:content/root/container/container/ccaconfiguration.model.json [PT,QSA,L]
+#Redirect GR url
+RewriteCond %{REQUEST_URI} ^/createaccount/customer/(email-verify|convertProfile|payment-preference)
+RewriteRule ^(.*)$ /createaccount/customer [R=301,L]
+
+#Holiday mask url
+RewriteRule ^/(.*)/genericconfigs.json /content/experience-fragments/sunbeltrentals/$1/generic-configurations/master/jcr:content/root/genericconfigs.model.json [PT,QSA,L]
+
+#Mask /content/sunbeltrentals/
+RewriteRule ^/content/sunbeltrentals/(.*)$ /$1 [NE,L,R=301]
+
+#Replace the .html with /
+RewriteCond %{REQUEST_URI} \.html$
+RewriteRule ^/(.*).html$ https://%{HTTP_HOST}/$1/ [R=301,L,QSA]
+
+#Mask product-page.html
+RewriteRule (.*)/product-page.html/(.*) /$1/$2/ [NE,L,R=301]
+#Mask category-page.html
+RewriteRule (.*)/category-page.html/(.*) /$1/$2/ [NE,L,R=301]
+
+#Mask ca
+RewriteRule ^/ca/(.*)$ /$1 [NE,L,R=301]
+#Mask /us/en_US
+RewriteRule ^/us/en_US/(.*)$ /$1 [NE,L,R=301]
+#Mask /us/en_US.html
+RewriteRule ^/us/en_US.html /$1 [NE,L,R=301]
+#Landing Page for us
+
+RewriteRule ^/robots.txt$ /content/sunbeltrentals/us/en_US/_jcr_content.robots.txt [PT,L]
+RewriteRule ^/$ /content/sunbeltrentals/us/en_US.html [PT,L]
+
+RewriteCond %{QUERY_STRING} pdfContentView=inline [NC]
+RewriteRule .* - [E=VIEW_PDF_HEADER:true]
+
+#Append / for the urls
+RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !^/apps
-RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
 RewriteCond %{REQUEST_URI} !^/etc
 RewriteCond %{REQUEST_URI} !^/home
 RewriteCond %{REQUEST_URI} !^/libs
-RewriteCond %{REQUEST_URI} !^/saml_login
-RewriteCond %{REQUEST_URI} !^/system
+RewriteCond %{REQUEST_URI} !^/services
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
-RewriteCond %{REQUEST_URI} !^/wknd-.*
-RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
-RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
+RewriteCond %{REQUEST_URI} /+[^\.]+$
+RewriteRule ^(.*[^/])$ https://%{HTTP_HOST}$1/ [R=301,L,QSA]
+
+#for Delivery Tracker to redirect page to tracker/us/en_US without updating the URL path
+RewriteRule ^/rental-tracker$ /content/tracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/rental-tracker/$ /content/tracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/rental-tracker/(.*)/$ /content/tracker/us/en_US/$1.html [PT,QSA,L]
+RewriteRule ^/track/delivery$ /content/tracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/track/delivery/$ /content/tracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/track/delivery/(.*)/$ /content/tracker/us/en_US/$1.html [PT,QSA,L]
+
+
+#for Delivery Tracker to redirect page to tracker/ca/en_CA without updating the URL path
+RewriteRule ^/(ca|en-ca)/track/delivery$ /content/tracker/ca/en_CA.html [PT,QSA,L]
+RewriteRule ^/(ca|en-ca)/track/delivery/$ /content/tracker/ca/en_CA.html [PT,QSA,L]
+RewriteRule ^/(ca|en-ca)/track/delivery/(.*)/$ /content/tracker/ca/en_CA/$1.html [PT,QSA,L]
+
+RewriteRule ^/track/service /content/servicetracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/track/service/$ /content/servicetracker/us/en_US.html [PT,QSA,L]
+RewriteRule ^/track/service/(.*)/$ /content/servicetracker/us/en_US/$1.html [PT,QSA,L]
+
+#For US - Append the .html for those URL’s ending with / before sending to publisher
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/en-ca
+RewriteCond %{REQUEST_URI} !^/apps
+RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/home
+RewriteCond %{REQUEST_URI} !^/libs
+RewriteCond %{REQUEST_URI} !^/services
+RewriteCond %{REQUEST_URI} !^/tmp
+RewriteCond %{REQUEST_URI} !^/var
+RewriteRule ^/(.*)/$ /content/sunbeltrentals/us/en_US/$1.html [PT,L,QSA]
+
+#For CA - Append the .html for those URL’s ending with / before sending to publisher
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} ^/en-ca
+RewriteCond %{REQUEST_URI} !^/apps
+RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/home
+RewriteCond %{REQUEST_URI} !^/libs
+RewriteCond %{REQUEST_URI} !^/services
+RewriteCond %{REQUEST_URI} !^/tmp
+RewriteCond %{REQUEST_URI} !^/var
+RewriteRule ^/(.*)/$ /content/sunbeltrentals/ca/$1.html [PT,L,QSA]
+
+#Append the .html for those URL’s (if both above conditions failed) ending with /
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
+
+#Myaccount Json rules
+RewriteRule ^/api/myaccount/(.*).model.json$ /content/sunbeltrentals/us/en_US/myaccount/$1.model.json [PT,QSA,L]
+
+
