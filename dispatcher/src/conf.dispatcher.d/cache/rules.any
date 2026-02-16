@@ -5,3 +5,9 @@
 #
 
 $include "./default_rules.any"
+
+# Disable caching for /content/page/abhi.html
+/0100 {
+    /glob "/content/page/abhi.html"
+    /type "deny"
+}

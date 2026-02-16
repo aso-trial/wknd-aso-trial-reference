@@ -16,7 +16,7 @@ Include conf.d/variables/custom.vars
 	# Put names of which domains are used for your published site/content here
 	ServerAlias	 "*"
 	# Use a document root that matches the one in conf.dispatcher.d/default.farm
-	DocumentRoot "${DOCROOT}"
+	DocumentRoot "${DOCROOTS}"
 	# URI dereferencing algorithm is applied at Sling's level, do not decode parameters here
 	AllowEncodedSlashes NoDecode
 	# Add header breadcrumbs for help in troubleshooting
