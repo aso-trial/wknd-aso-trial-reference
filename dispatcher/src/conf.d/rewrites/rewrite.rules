@@ -23,8 +23,9 @@ RewriteRule ^/wknd-([^/]+)/redirect(.*)$ /wknd-$1/redirect$2 [PT,L]
 # Vanity mapping for /wknd-... to ASO content (before generic rewrite)
 RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
 
-# Intentionally uses undeclared variable to trigger web-tier validation error (remove for production)
-RewriteRule ^/validation-test$ /content/${UNDECLARED_VAR_FOR_VALIDATION}/test.html [PT,L]
+# Intentionally malformed RewriteRule to trigger web-tier validation failure (remove for production)
+# Syntax error: missing substitution and flags - causes "Syntax error in VHOST, Rewrite or undeclared variable use"
+RewriteRule ^/validation-test$
 
 # redirect all root traffic to US home page
 RewriteCond %{REQUEST_URI} ^/?$
