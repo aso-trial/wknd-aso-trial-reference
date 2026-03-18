@@ -15,11 +15,16 @@
 FROM cypress/included:13.14.1
 
 ENV APP_PATH /usr/src/app
-RUN apt -qqy update \
-    # Generic dependencies
+# Base image ships a Google Chrome apt repo whose signing key often breaks `apt update`
+# in CI (NO_PUBKEY). Browsers are already bundled; remove that source only.
+RUN for f in /etc/apt/sources.list.d/*.list; do \
+      [ -f "$f" ] && grep -q 'dl.google.com/linux/chrome' "$f" 2>/dev/null && rm -f "$f"; \
+    done; true \
+    && apt -qqy update \
     && apt -qqy --no-install-recommends install \
     curl \
-    build-essential
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set Application Environment
 WORKDIR ${APP_PATH}
