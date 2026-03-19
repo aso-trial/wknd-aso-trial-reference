@@ -72,3 +72,437 @@ data:
           - SCANNER
           - PRIVATEFILE
           - NULLBYTE
+  redirects:
+    rules:
+      - name: redirect-vehicles-new-range-rover-sport-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-range-rover-sport/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/range-rover/range-rover-sport/index.html
+      - name: redirect-ownership-incontrol-incontrol-user-guide-incontrol-protect-html
+        when:
+          reqProperty: path
+          equals: /ownership/incontrol/incontrol-user-guide/incontrol-protect.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/security.html
+      - name: redirect-explore-land-rover-unstoppable-spirit-gerry-mcgovern-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/unstoppable-spirit/gerry-mcgovern.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-vehicles-new-range-rover-evoque-specifications-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-range-rover-evoque/specifications.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-Evoque-TD-Insert-1L5512400000GBEN01P1.pdf
+      - name: redirect-vehicles-new-range-rover-evoque-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-range-rover-evoque/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-vehicles-new-discovery-sport-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-discovery-sport/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery-sport/index.html
+      - name: redirect-vehicles-range-rover-velar-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/range-rover-velar/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/range-rover/range-rover-velar/index.html
+      - name: redirect-vehicles-range-rover-svautobiography-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/range-rover/svautobiography/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/range-rover/range-rover/index.html
+      - name: redirect-vehicles-new-range-rover-specifications-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-range-rover/specifications.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-TD-Insert-1L4602500000GBEN01P.pdf
+      - name: redirect-ownership-incontrol-infotainment-index-html
+        when:
+          reqProperty: path
+          equals: /ownership/incontrol/infotainment/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/infotainment-systems/infotainment/index.html
+      - name: redirect-experience-landrover-lr-experience-drives-index-html
+        when:
+          reqProperty: path
+          equals: /experience-landrover/lr-experience-drives/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html
+      - name: redirect-explore-land-rover-one-life-index-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/one-life/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-vehicles-range-rover-evoque-index-html
+        when:
+          reqProperty: path
+          equals: /vehicles/range-rover-evoque/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-rugby
+        when:
+          reqProperty: path
+          equals: /rugby
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html
+      - name: redirect-ownership-guides-and-manuals-off-road-driving-html
+        when:
+          reqProperty: path
+          equals: /ownership/guides-and-manuals/off-road-driving.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/off-road/index.html
+      - name: redirect-adventure
+        when:
+          reqProperty: path
+          equals: /adventure
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/experiences/travel/index.html
+      - name: redirect-experience-landrover-adventure-travel-index-html
+        when:
+          reqProperty: path
+          equals: /experience-landrover/adventure-travel/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html
+      - name: redirect-vehicles-range-rover-technology-html
+        when:
+          reqProperty: path
+          equals: /vehicles/range-rover/technology.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/range-rover/range-rover/pioneering-innovation.html
+      - name: redirect-above-and-beyond-news-all-new-discovery-html
+        when:
+          reqProperty: path
+          equals: /above-and-beyond/news/all-new-discovery.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html
+      - name: redirect-equestrian
+        when:
+          reqProperty: path
+          equals: /equestrian
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html
+      - name: redirect-explore-land-rover-news-project-hero-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/news/project-hero.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-gb-en-go-beyond-merchandise-bikes-htm
+        when:
+          reqProperty: path
+          equals: /gb/en/go-beyond/merchandise/bikes.htm
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/accessories/index.html
+      - name: redirect-the-defender-multi-tool
+        when:
+          reqProperty: path
+          equals: /the-defender-multi-tool
+        action:
+          type: redirect
+          status: 301
+          location: https://shop.landrover.co.uk/defender-hammer-multi-tool-2026
+      - name: redirect-families-defender-html
+        when:
+          reqProperty: path
+          equals: /families/defender.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/explore-land-rover/about-suvs/7-seater-suvs.html
+      - name: redirect-explore-land-rover-outspiration-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/outspiration.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-explore-land-rover-one-life-adventure-best-stargazing-spots-uk-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/one-life/adventure/best-stargazing-spots-uk.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/explore-land-rover/one-life/design/series-one-defender-history.html
+      - name: redirect-explore-land-rover-index-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-sponsorship-and-experiences-defender-challenge
+        when:
+          reqProperty: path
+          equals: /sponsorship-and-experiences/defender-challenge
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/experience-landrover/land-rover-experience/advocacy.html
+      - name: redirect-svo
+        when:
+          reqProperty: path
+          equals: /svo
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/special-vehicle-operations/svr-ultimate-edition.html
+      - name: redirect-mascots
+        when:
+          reqProperty: path
+          equals: /mascots
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html
+      - name: redirect-approvedservicepack
+        when:
+          reqProperty: path
+          equals: /approvedservicepack
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/servicing/service-plans.html
+      - name: redirect-explore-land-rover-featured-articles-hibernot-winter-is-served-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/featured-articles/hibernot/winter-is-served.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/index.html
+      - name: redirect-vehicles-discovery-models-html
+        when:
+          reqProperty: path
+          equals: /vehicles/discovery/models.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html
+      - name: redirect-build-your-own-discovery-sport-html
+        when:
+          reqProperty: path
+          equals: /build-your-own/discovery-sport.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/build-your-own/index.html
+      - name: redirect-build-your-own-range-rover-evoque-html
+        when:
+          reqProperty: path
+          equals: /build-your-own/range-rover-evoque.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/build-your-own/index.html
+      - name: redirect-covid19-information-index-html
+        when:
+          reqProperty: path
+          equals: /covid19-information/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/range-rover/range-rover/index.html
+      - name: redirect-gb-en-Vehicles-overview-htm
+        when:
+          reqProperty: path
+          equals: /gb/en/Vehicles/overview.htm
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery/interior-gallery.html
+      - name: redirect-vehicles-defender-models-html
+        when:
+          reqProperty: path
+          equals: /vehicles/defender/models.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-james-bond-film-index-html
+        when:
+          reqProperty: path
+          equals: /james-bond-film/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-explore-land-rover-one-life-heritage-range-rover-history-html
+        when:
+          reqProperty: path
+          equals: /explore-land-rover/one-life/heritage/range-rover-history.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/approved-used/how-to-buy.html
+      - name: redirect-keylessentry-index-html
+        when:
+          reqProperty: path
+          equals: /keylessentry/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/accessories/index.html
+      - name: redirect-vehicles-defender-celebrate-defender-html
+        when:
+          reqProperty: path
+          equals: /vehicles/defender/celebrate-defender.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-gb-en-vehicles-discovery-3-overview-htm
+        when:
+          reqProperty: path
+          equals: /gb/en/vehicles/discovery-3/overview.htm
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery-1-4.html
+      - name: redirect-fleet-and-business-land-rover-commercial-defender-hard-top-90-html
+        when:
+          reqProperty: path
+          equals: /fleet-and-business/land-rover-commercial/defender-hard-top-90.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-offers-and-finance-value-your-car-index-html
+        when:
+          reqProperty: path
+          equals: /offers-and-finance/value-your-car/index.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/ownership/servicing/book-a-service-or-mot-online.html
+      - name: redirect-retailers-westover-salisbury-html
+        when:
+          reqProperty: path
+          equals: /retailers/westover-salisbury.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/retailers/vertu-leeds.html
+      - name: redirect-gb-en-Vehicles-Defender-Defender-overview-htm
+        when:
+          reqProperty: path
+          equals: /gb/en/Vehicles/Defender/Defender_overview.htm
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-gb-en-Vehicles-Defender07-Defender-overview-htm
+        when:
+          reqProperty: path
+          equals: /gb/en/Vehicles/Defender07/Defender_overview.htm
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/electric/defender-electric.html
+      - name: redirect-retailers-guy-salmon-stratford-upon-avon-html
+        when:
+          reqProperty: path
+          equals: /retailers/guy-salmon-stratford-upon-avon.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/retailers/listers-droitwich.html
+      - name: redirect-retailers-farnell-guiseley-html
+        when:
+          reqProperty: path
+          equals: /retailers/farnell-guiseley.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/retailers/vertu-leeds.html
+      - name: redirect-root
+        when:
+          reqProperty: path
+          equals: /
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/retailers/vertu-leeds.html
+      - name: redirect-retailers-stratstone-cardiff-html
+        when:
+          reqProperty: path
+          equals: /retailers/stratstone-cardiff.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/retailers/sinclair-cardiff.html
+      - name: redirect-retailers-guy-salmon-thames-ditton-html
+        when:
+          reqProperty: path
+          equals: /retailers/guy-salmon-thames-ditton.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/approved-used/how-to-buy.html
+      - name: redirect-vehicles-new-discovery-sport-specifications-html
+        when:
+          reqProperty: path
+          equals: /vehicles/new-discovery-sport/specifications.html
+        action:
+          type: redirect
+          status: 301
+          location: https://www.landrover.co.uk/discovery/discovery-1-4.html
