@@ -21,6 +21,164 @@ RewriteRule ^/wknd-(.*)$ /content/ASO/wknd-$1 [PT,L]
 RewriteCond %{REQUEST_URI} ^/?$
 RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
 
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-range-rover-sport/index.html -> https://www.landrover.co.uk/range-rover/range-rover-sport/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/new-range-rover-sport/index\.html$ https://www.landrover.co.uk/range-rover/range-rover-sport/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/ownership/incontrol/incontrol-user-guide/incontrol-protect.html -> https://www.landrover.co.uk/ownership/security.html (broken backlink autofix)
+RewriteRule ^/ownership/incontrol/incontrol-user-guide/incontrol-protect\.html$ https://www.landrover.co.uk/ownership/security.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/unstoppable-spirit/gerry-mcgovern.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/unstoppable-spirit/gerry-mcgovern\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-range-rover-evoque/specifications.html -> https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-Evoque-TD-Insert-1L5512400000GBEN01P1.pdf (broken backlink autofix)
+RewriteRule ^/vehicles/new-range-rover-evoque/specifications\.html$ https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-Evoque-TD-Insert-1L5512400000GBEN01P1.pdf [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-range-rover-evoque/index.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/new-range-rover-evoque/index\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-discovery-sport/index.html -> https://www.landrover.co.uk/discovery/discovery-sport/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/new-discovery-sport/index\.html$ https://www.landrover.co.uk/discovery/discovery-sport/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/range-rover-velar/index.html -> https://www.landrover.co.uk/range-rover/range-rover-velar/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/range-rover-velar/index\.html$ https://www.landrover.co.uk/range-rover/range-rover-velar/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/range-rover/svautobiography/index.html -> https://www.landrover.co.uk/range-rover/range-rover/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/range-rover/svautobiography/index\.html$ https://www.landrover.co.uk/range-rover/range-rover/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-range-rover/specifications.html -> https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-TD-Insert-1L4602500000GBEN01P.pdf (broken backlink autofix)
+RewriteRule ^/vehicles/new-range-rover/specifications\.html$ https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-TD-Insert-1L4602500000GBEN01P.pdf [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/ownership/incontrol/infotainment/index.html -> https://www.landrover.co.uk/ownership/infotainment-systems/infotainment/index.html (broken backlink autofix)
+RewriteRule ^/ownership/incontrol/infotainment/index\.html$ https://www.landrover.co.uk/ownership/infotainment-systems/infotainment/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/experience-landrover/lr-experience-drives/index.html -> https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html (broken backlink autofix)
+RewriteRule ^/experience-landrover/lr-experience-drives/index\.html$ https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/one-life/index.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/one-life/index\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/range-rover-evoque/index.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/vehicles/range-rover-evoque/index\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/rugby -> https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html (broken backlink autofix)
+RewriteRule ^/rugby$ https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/ownership/guides-and-manuals/off-road-driving.html -> https://www.landrover.co.uk/ownership/off-road/index.html (broken backlink autofix)
+RewriteRule ^/ownership/guides-and-manuals/off-road-driving\.html$ https://www.landrover.co.uk/ownership/off-road/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/adventure -> https://www.landrover.co.uk/experiences/travel/index.html (broken backlink autofix)
+RewriteRule ^/adventure$ https://www.landrover.co.uk/experiences/travel/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/experience-landrover/adventure-travel/index.html -> https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html (broken backlink autofix)
+RewriteRule ^/experience-landrover/adventure-travel/index\.html$ https://www.landrover.co.uk/experiences/driving-experiences/uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/range-rover/technology.html -> https://www.landrover.co.uk/range-rover/range-rover/pioneering-innovation.html (broken backlink autofix)
+RewriteRule ^/vehicles/range-rover/technology\.html$ https://www.landrover.co.uk/range-rover/range-rover/pioneering-innovation.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/above-and-beyond/news/all-new-discovery.html -> https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html (broken backlink autofix)
+RewriteRule ^/above-and-beyond/news/all-new-discovery\.html$ https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/equestrian -> https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html (broken backlink autofix)
+RewriteRule ^/equestrian$ https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/news/project-hero.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/news/project-hero\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/gb/en/go-beyond/merchandise/bikes.htm -> https://www.landrover.co.uk/ownership/accessories/index.html (broken backlink autofix)
+RewriteRule ^/gb/en/go-beyond/merchandise/bikes\.htm$ https://www.landrover.co.uk/ownership/accessories/index.html [R=301,L]
+
+# Mysticat redirect: https://shop.landrover.co.uk/the-defender-multi-tool -> https://shop.landrover.co.uk/defender-hammer-multi-tool-2026 (broken backlink autofix)
+RewriteRule ^/the-defender-multi-tool$ https://shop.landrover.co.uk/defender-hammer-multi-tool-2026 [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/families/defender.html -> https://www.landrover.co.uk/explore-land-rover/about-suvs/7-seater-suvs.html (broken backlink autofix)
+RewriteRule ^/families/defender\.html$ https://www.landrover.co.uk/explore-land-rover/about-suvs/7-seater-suvs.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/outspiration.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/outspiration\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/one-life/adventure/best-stargazing-spots-uk.html -> https://www.landrover.co.uk/explore-land-rover/one-life/design/series-one-defender-history.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/one-life/adventure/best-stargazing-spots-uk\.html$ https://www.landrover.co.uk/explore-land-rover/one-life/design/series-one-defender-history.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/index.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/index\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/sponsorship-and-experiences/defender-challenge -> https://www.landrover.co.uk/experience-landrover/land-rover-experience/advocacy.html (broken backlink autofix)
+RewriteRule ^/sponsorship-and-experiences/defender-challenge$ https://www.landrover.co.uk/experience-landrover/land-rover-experience/advocacy.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/svo -> https://www.landrover.co.uk/special-vehicle-operations/svr-ultimate-edition.html (broken backlink autofix)
+RewriteRule ^/svo$ https://www.landrover.co.uk/special-vehicle-operations/svr-ultimate-edition.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/mascots -> https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html (broken backlink autofix)
+RewriteRule ^/mascots$ https://www.landrover.co.uk/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/approvedservicepack -> https://www.landrover.co.uk/ownership/servicing/service-plans.html (broken backlink autofix)
+RewriteRule ^/approvedservicepack$ https://www.landrover.co.uk/ownership/servicing/service-plans.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/featured-articles/hibernot/winter-is-served.html -> https://www.landrover.co.uk/index.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/featured-articles/hibernot/winter-is-served\.html$ https://www.landrover.co.uk/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/discovery/models.html -> https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html (broken backlink autofix)
+RewriteRule ^/vehicles/discovery/models\.html$ https://www.landrover.co.uk/discovery/discovery/models-and-specifications.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/build-your-own/discovery-sport.html -> https://www.landrover.co.uk/build-your-own/index.html (broken backlink autofix)
+RewriteRule ^/build-your-own/discovery-sport\.html$ https://www.landrover.co.uk/build-your-own/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/build-your-own/range-rover-evoque.html -> https://www.landrover.co.uk/build-your-own/index.html (broken backlink autofix)
+RewriteRule ^/build-your-own/range-rover-evoque\.html$ https://www.landrover.co.uk/build-your-own/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/covid19-information/index.html -> https://www.landrover.co.uk/range-rover/range-rover/index.html (broken backlink autofix)
+RewriteRule ^/covid19-information/index\.html$ https://www.landrover.co.uk/range-rover/range-rover/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/gb/en/Vehicles/overview.htm -> https://www.landrover.co.uk/discovery/discovery/interior-gallery.html (broken backlink autofix)
+RewriteRule ^/gb/en/Vehicles/overview\.htm$ https://www.landrover.co.uk/discovery/discovery/interior-gallery.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/defender/models.html -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/vehicles/defender/models\.html$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/james-bond-film/index.html -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/james-bond-film/index\.html$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/explore-land-rover/one-life/heritage/range-rover-history.html -> https://www.landrover.co.uk/approved-used/how-to-buy.html (broken backlink autofix)
+RewriteRule ^/explore-land-rover/one-life/heritage/range-rover-history\.html$ https://www.landrover.co.uk/approved-used/how-to-buy.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/keylessentry/index.html -> https://www.landrover.co.uk/ownership/accessories/index.html (broken backlink autofix)
+RewriteRule ^/keylessentry/index\.html$ https://www.landrover.co.uk/ownership/accessories/index.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/defender/celebrate-defender.html -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/vehicles/defender/celebrate-defender\.html$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/gb/en/vehicles/discovery-3/overview.htm -> https://www.landrover.co.uk/discovery/discovery-1-4.html (broken backlink autofix)
+RewriteRule ^/gb/en/vehicles/discovery-3/overview\.htm$ https://www.landrover.co.uk/discovery/discovery-1-4.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/fleet-and-business/land-rover-commercial/defender-hard-top-90.html -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/fleet-and-business/land-rover-commercial/defender-hard-top-90\.html$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/offers-and-finance/value-your-car/index.html -> https://www.landrover.co.uk/ownership/servicing/book-a-service-or-mot-online.html (broken backlink autofix)
+RewriteRule ^/offers-and-finance/value-your-car/index\.html$ https://www.landrover.co.uk/ownership/servicing/book-a-service-or-mot-online.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/retailers/westover-salisbury.html -> https://www.landrover.co.uk/retailers/vertu-leeds.html (broken backlink autofix)
+RewriteRule ^/retailers/westover-salisbury\.html$ https://www.landrover.co.uk/retailers/vertu-leeds.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/gb/en/Vehicles/Defender/Defender_overview.htm -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/gb/en/Vehicles/Defender/Defender_overview\.htm$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/gb/en/Vehicles/Defender07/Defender_overview.htm -> https://www.landrover.co.uk/electric/defender-electric.html (broken backlink autofix)
+RewriteRule ^/gb/en/Vehicles/Defender07/Defender_overview\.htm$ https://www.landrover.co.uk/electric/defender-electric.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/retailers/guy-salmon-stratford-upon-avon.html -> https://www.landrover.co.uk/retailers/listers-droitwich.html (broken backlink autofix)
+RewriteRule ^/retailers/guy-salmon-stratford-upon-avon\.html$ https://www.landrover.co.uk/retailers/listers-droitwich.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/retailers/farnell-guiseley.html -> https://www.landrover.co.uk/retailers/vertu-leeds.html (broken backlink autofix)
+RewriteRule ^/retailers/farnell-guiseley\.html$ https://www.landrover.co.uk/retailers/vertu-leeds.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/retailers/stratstone-cardiff.html -> https://www.landrover.co.uk/retailers/sinclair-cardiff.html (broken backlink autofix)
+RewriteRule ^/retailers/stratstone-cardiff\.html$ https://www.landrover.co.uk/retailers/sinclair-cardiff.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/retailers/guy-salmon-thames-ditton.html -> https://www.landrover.co.uk/approved-used/how-to-buy.html (broken backlink autofix)
+RewriteRule ^/retailers/guy-salmon-thames-ditton\.html$ https://www.landrover.co.uk/approved-used/how-to-buy.html [R=301,L]
+
+# Mysticat redirect: https://www.landrover.co.uk/vehicles/new-discovery-sport/specifications.html -> https://www.landrover.co.uk/discovery/discovery-1-4.html (broken backlink autofix)
+RewriteRule ^/vehicles/new-discovery-sport/specifications\.html$ https://www.landrover.co.uk/discovery/discovery-1-4.html [R=301,L]
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
