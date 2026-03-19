@@ -7,6 +7,36 @@
 $include "./default_filters.any"
 
 # Allow components JSON model
+/0232 { /type "allow" /method "GET" /url '^/explore-land-rover/about-suvs/compact-suvs\.html$' }
+/0231 { /type "allow" /method "GET" /url '^/retailers/duckworth-market-rasen\.html$' }
+/0230 { /type "allow" /method "GET" /url '^/retailers/harwoods-crawley\.html$' }
+/0229 { /type "allow" /method "GET" /url '^/the-out\.html$' }
+/0228 { /type "allow" /method "GET" /url '^/comparison-tool/index\.html$' }
+/0227 { /type "allow" /method "GET" /url '^/retailers/hendy-southampton\.html$' }
+/0226 { /type "allow" /method "GET" /url '^/defender/defender-90/index\.html$' }
+/0225 { /type "allow" /method "GET" /url '^/ownership/servicing/service-plans\.html$' }
+/0224 { /type "allow" /method "GET" /url '^/defender-world/sport/rugby/trailblazers/defenders-of-tomorrow\.html$' }
+/0223 { /type "allow" /method "GET" /url '^/special-vehicle-operations/svr-ultimate-edition\.html$' }
+/0222 { /type "allow" /method "GET" /url '^/experience-landrover/land-rover-experience/advocacy\.html$' }
+/0221 { /type "allow" /method "GET" /url '^/explore-land-rover/one-life/design/series-one-defender-history\.html$' }
+/0220 { /type "allow" /method "GET" /url '^/explore-land-rover/about-suvs/7-seater-suvs\.html$' }
+/0219 { /type "allow" /method "GET" /url '^/defender-hammer-multi-tool-2026$' }
+/0218 { /type "allow" /method "GET" /url '^/explore/discovery-stories/the-discovery-story\.html$' }
+/0217 { /type "allow" /method "GET" /url '^/discovery/discovery/models-and-specifications\.html$' }
+/0216 { /type "allow" /method "GET" /url '^/range-rover/range-rover/pioneering-innovation\.html$' }
+/0215 { /type "allow" /method "GET" /url '^/experiences/travel/index\.html$' }
+/0214 { /type "allow" /method "GET" /url '^/ownership/off-road/index\.html$' }
+/0213 { /type "allow" /method "GET" /url '^/defender-world/sport/rugby/trailblazers/index\.html$' }
+/0212 { /type "allow" /method "GET" /url '^/experiences/driving-experiences/uk/index\.html$' }
+/0211 { /type "allow" /method "GET" /url '^/ownership/infotainment-systems/infotainment/index\.html$' }
+/0210 { /type "allow" /method "GET" /url '^/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-TD-Insert-1L4602500000GBEN01P\.pdf$' }
+/0209 { /type "allow" /method "GET" /url '^/range-rover/range-rover/index\.html$' }
+/0208 { /type "allow" /method "GET" /url '^/range-rover/range-rover-velar/index\.html$' }
+/0207 { /type "allow" /method "GET" /url '^/discovery/discovery-sport/index\.html$' }
+/0206 { /type "allow" /method "GET" /url '^/build-your-own/index\.html$' }
+/0205 { /type "allow" /method "GET" /url '^/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Range-Rover-Evoque-TD-Insert-1L5512650000GBEN01P\.pdf$' }
+/0204 { /type "allow" /method "GET" /url '^/index\.html$' }
+/0203 { /type "allow" /method "GET" /url '^/ownership/security\.html$' }
 /0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
 
 # Allow manifest.webmanifest files located in the content
