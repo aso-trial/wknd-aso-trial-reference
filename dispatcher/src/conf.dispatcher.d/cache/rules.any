@@ -5,3 +5,9 @@
 #
 
 $include "./default_rules.any"
+
+# Allow caching for Core Image Component renditions (LCP optimization)
+/0100 {
+    /glob "*.coreimg.*"
+    /type "allow"
+}
