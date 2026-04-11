@@ -1,5 +1,7 @@
 # AEM WKND Sites Project
 
+<!-- Provider refactor validation test -->
+
 ## Adobe Experience Manager compatibility
 
 WKND versions are compatible with the following versions of Adobe Experience Manager:
