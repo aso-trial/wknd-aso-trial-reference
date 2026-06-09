@@ -5,3 +5,10 @@
 #
 
 $include "./default_rules.any"
+
+# Allow caching for Core Image Component renditions
+/0100 { /glob "*.coreimg.*" /type "allow" }
+
+# Allow caching for immutable clientlibs with hash
+/0101 { /glob "/etc.clientlibs/*.lc-*.min.js" /type "allow" }
+/0102 { /glob "/etc.clientlibs/*.lc-*.min.css" /type "allow" }
