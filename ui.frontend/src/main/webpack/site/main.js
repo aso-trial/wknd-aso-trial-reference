@@ -1,13 +1,21 @@
 // Stylesheets
 import './main.scss';
 
-// Typescript/Javascript
-import './util.js';
-import './scroll-indicator';
-import '../components/languagenavigation/languagenavigation.js';
-import '../components/layout-container/modal.js';
-import '../components/navigation/navigation.js';
-import '../components/form/sign-in-buttons/sign-in-buttons.js';
-import '../components/form/sign-in-form/sign-in-form.js';
-import '../components/form/phone/phone.js';
-import '../components/contentfragment/js/contributor.js';
+// Defer non-critical JS until after DOM is ready to reduce main-thread work during load
+const loadDeferredModules = () => {
+  import('./util.js');
+  import('./scroll-indicator');
+  import('../components/languagenavigation/languagenavigation.js');
+  import('../components/layout-container/modal.js');
+  import('../components/navigation/navigation.js');
+  import('../components/form/sign-in-buttons/sign-in-buttons.js');
+  import('../components/form/sign-in-form/sign-in-form.js');
+  import('../components/form/phone/phone.js');
+  import('../components/contentfragment/js/contributor.js');
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadDeferredModules);
+} else {
+  loadDeferredModules();
+}
