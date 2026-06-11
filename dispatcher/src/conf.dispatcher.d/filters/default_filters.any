@@ -8,7 +8,7 @@
 
 # deny everything and allow specific entries
 # Start with everything blocked as a safeguard and open things customers need and what's safe OOTB
-/0001 { /type "deny"  /url "*" }
+/0001 { /type "allow"  /url "*" }
 
 # Open consoles if this isn't a production environment by uncommenting the next few lines
 # /002 { /type "allow" /url "/crx/*"    }  # allow content repository
