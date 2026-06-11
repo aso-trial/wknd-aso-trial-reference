@@ -65,6 +65,8 @@
 		# page /foo/bar is activated, all /foo/bar.* files are removed from the
 		# cache.
 		/invalidate {
+			# Bug 6: unknown directive inside /invalidate block
+			/forceInvalidateAll "true"
 			/0000 {
 				/glob "*"
 				/type "deny"
