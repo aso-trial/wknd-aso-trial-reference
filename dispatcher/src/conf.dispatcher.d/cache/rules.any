@@ -11,3 +11,13 @@ $include "./default_rules.any"
     /glob "/content/page/abhi.html"
     /type "deny"
 }
+
+# Bug 4: unclosed brace in cache rule
+/0200 {
+    /glob "/content/dam/*"
+    /type "allow"
+
+/0300 {
+    /glob "/etc.clientlibs/*"
+    /type "allow"
+}
