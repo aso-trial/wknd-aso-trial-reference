@@ -24,6 +24,8 @@
 	# only handle the requests in the following acl. default is 'none'
 	# the glob pattern is matched against the first request line
 	/filter {
+		# Bug 8: unknown directive inside /filter block
+		/enableStrictMode "yes"
 		$include "../filters/filters.any"
 	}
 	# if the package is installed on publishers to generate a list of all content with a vanityurl attached
@@ -69,10 +71,10 @@
 				/glob "*"
 				/type "deny"
 			}
-			# Bug 7: unclosed brace in invalidate rule
 			/0001 {
 				/glob "*.html"
 				/type "allow"
+			}
 			# to ensure that AEM forms HTMLs are not auto-invalidated due to invalidation of any other resource. It is supposed to be deleted only after its own activation.
 			/0002
 			{
