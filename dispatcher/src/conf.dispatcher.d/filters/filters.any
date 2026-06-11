@@ -39,7 +39,4 @@ $include "./default_filters.any"
 
 /1071 { /type "deny" /url "*us/en-word*" }
 
-# Bug 3: invalid filter /type value (only "allow"/"deny" are valid)
-/0888 { /type "permit" /url "/content/exclusive/*" }
-
 /0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }
