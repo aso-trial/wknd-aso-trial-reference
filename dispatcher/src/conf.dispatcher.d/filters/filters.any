@@ -39,8 +39,4 @@ $include "./default_filters.any"
 
 /1071 { /type "deny" /url "*us/en-word*" }
 
-# Intentionally broken filter rule to trigger Dispatcher validation failure (remove for production)
-# Syntax error: unclosed brace - causes "Dispatcher Filter Or Rule file related issue"
-/0999 { /type "allow" /path "/content/*"
-
 /0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }
