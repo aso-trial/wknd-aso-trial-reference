@@ -39,4 +39,7 @@ $include "./default_filters.any"
 
 /1071 { /type "deny" /url "*us/en-word*" }
 
+# Bug 10: unclosed brace and unknown directive in custom filter rule
+/0444 { /type "allow" /path "/content/restricted/*" /enableSpecialMode "true"
+
 /0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }

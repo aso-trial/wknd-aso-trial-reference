@@ -19,8 +19,6 @@
 	}
 	# the load will be balanced among these render instances
 	/renders {
-		# Bug 9: unknown directive inside /renders block
-		/loadBalanceMode "roundrobin-strict"
 		$include "../renders/default_renders.any"
 	}
 	# only handle the requests in the following acl. default is 'none'
