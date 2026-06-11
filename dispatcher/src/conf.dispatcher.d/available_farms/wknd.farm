@@ -65,16 +65,14 @@
 		# page /foo/bar is activated, all /foo/bar.* files are removed from the
 		# cache.
 		/invalidate {
-			# Bug 6: unknown directive inside /invalidate block
-			/forceInvalidateAll "true"
 			/0000 {
 				/glob "*"
 				/type "deny"
 			}
+			# Bug 7: unclosed brace in invalidate rule
 			/0001 {
 				/glob "*.html"
 				/type "allow"
-			}
 			# to ensure that AEM forms HTMLs are not auto-invalidated due to invalidation of any other resource. It is supposed to be deleted only after its own activation.
 			/0002
 			{
