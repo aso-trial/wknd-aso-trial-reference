@@ -28,11 +28,10 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.eval.JcrPropertyPredicateEvaluator;
 import com.day.cq.search.eval.PathPredicateEvaluator;
 import com.day.cq.search.eval.TypePredicateEvaluator;
+import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.components.ComponentContext;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -115,7 +114,7 @@ public class ImageListImpl implements ImageList {
             }
         }
 
-        return ImmutableList.copyOf(imageListItems);
+        return List.copyOf(imageListItems);
     }
 
     @Override
@@ -181,7 +180,8 @@ public class ImageListImpl implements ImageList {
 
         @Override
         public String getURL() {
-            return wrappedListItem.getURL();
+            final Link link = wrappedListItem.getLink();
+            return link != null ? link.getURL() : null;
         }
 
         public boolean isEmpty() {
@@ -227,16 +227,15 @@ public class ImageListImpl implements ImageList {
             return componentResources;
         }
 
-        final Map<String, String> params = ImmutableMap.<String, String>builder().
-                put(PathPredicateEvaluator.PATH, page.getContentResource().getPath()).
-                put(TypePredicateEvaluator.TYPE, JcrConstants.NT_UNSTRUCTURED).
-                put(JcrPropertyPredicateEvaluator.PROPERTY, JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY).
-                put(JcrPropertyPredicateEvaluator.PROPERTY + "." + JcrPropertyPredicateEvaluator.VALUE, slingResourceType).
-                put(PredicateConverter.GROUP_PARAMETER_PREFIX + "." + PredicateGroup.PARAM_LIMIT, String.valueOf(limit)).
-                put(PredicateConverter.GROUP_PARAMETER_PREFIX + "." +  PredicateGroup.PARAM_GUESS_TOTAL, "true").
-                put(Predicate.ORDER_BY, "@jcr:path").
-                put(Predicate.ORDER_BY + "." + Predicate.PARAM_SORT , Predicate.SORT_ASCENDING).
-                build();
+        final Map<String, String> params = new HashMap<>();
+        params.put(PathPredicateEvaluator.PATH, page.getContentResource().getPath());
+        params.put(TypePredicateEvaluator.TYPE, JcrConstants.NT_UNSTRUCTURED);
+        params.put(JcrPropertyPredicateEvaluator.PROPERTY, JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY);
+        params.put(JcrPropertyPredicateEvaluator.PROPERTY + "." + JcrPropertyPredicateEvaluator.VALUE, slingResourceType);
+        params.put(PredicateConverter.GROUP_PARAMETER_PREFIX + "." + PredicateGroup.PARAM_LIMIT, String.valueOf(limit));
+        params.put(PredicateConverter.GROUP_PARAMETER_PREFIX + "." +  PredicateGroup.PARAM_GUESS_TOTAL, "true");
+        params.put(Predicate.ORDER_BY, "@jcr:path");
+        params.put(Predicate.ORDER_BY + "." + Predicate.PARAM_SORT , Predicate.SORT_ASCENDING);
 
         final long start = System.currentTimeMillis();
 

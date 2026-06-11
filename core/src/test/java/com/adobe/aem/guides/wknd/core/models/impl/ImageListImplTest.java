@@ -16,6 +16,7 @@
 package com.adobe.aem.guides.wknd.core.models.impl;
 
 import com.adobe.aem.guides.wknd.core.models.ImageList;
+import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.internal.DataLayerConfig;
 import com.adobe.cq.wcm.core.components.models.Image;
 import com.adobe.cq.wcm.core.components.models.List;
@@ -338,6 +339,13 @@ class ImageListImplTest {
 
         public String getURL() {
             return resource.getPath() + ".html";
+        }
+
+        @Override
+        public Link getLink() {
+            Link link = mock(Link.class);
+            when(link.getURL()).thenReturn(resource.getPath() + ".html");
+            return link;
         }
 
         public String getTitle() {
