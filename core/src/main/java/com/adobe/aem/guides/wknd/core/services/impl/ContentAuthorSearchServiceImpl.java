@@ -44,7 +44,8 @@ public class ContentAuthorSearchServiceImpl implements ContentAuthorSearchServic
     /** Must match the subservice name declared in the serviceusermapping OSGi configuration. */
     static final String SUBSERVICE_NAME = "wknd-content-reader";
 
-    private static final String QUERY = "SELECT * FROM [nt:unstructured] WHERE [cq:lastModifiedBy] = $modifiedBy";
+    private static final String QUERY = "SELECT * FROM [nt:unstructured] WHERE ISDESCENDANTNODE([/content])"
+            + " AND [cq:lastModifiedBy] = $modifiedBy";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
