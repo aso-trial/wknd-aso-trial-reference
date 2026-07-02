@@ -1,0 +1,17 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "wknd": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:title": "WKND Site"
+    }
+  },
+  "no-title": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent"
+    }
+  }
+}
+

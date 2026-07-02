@@ -1,0 +1,5 @@
+{
+    "scripts": [
+        "create service user wknd-content-reader-service with path system/wknd\nset ACL for wknd-content-reader-service\n    allow jcr:read on /content\nend"
+    ]
+}

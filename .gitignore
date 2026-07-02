@@ -85,3 +85,6 @@ buildNumber.properties
 ### Node/NPM ###
 node/
 node_modules/
+
+.mcp.json
+.claude
