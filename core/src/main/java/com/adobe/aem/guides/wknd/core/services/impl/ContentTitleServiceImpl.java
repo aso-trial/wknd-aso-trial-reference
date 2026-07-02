@@ -21,6 +21,7 @@ import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
@@ -40,6 +41,12 @@ public class ContentTitleServiceImpl implements ContentTitleService {
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
+    
+    @Activate
+    public void init(){
+        String foo = getTitle("/content/wknd");
+        LOG.info("Activated {}", foo);
+    }
 
     @Override
     public String getTitle(String contentPath) {
