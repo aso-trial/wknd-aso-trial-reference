@@ -6,5 +6,5 @@
     <filter root="/apps/wcm/core"/>
     <filter root="/apps/cq/experience-fragments"/>
     <filter root="/apps/msm/wknd_blueprint" mode="merge"/>
-    <filter root="/oak:index/wknd-lastmodifiedby-lucene"/>
+    <filter root="/oak:index/wknd.lastmodifiedby-1-custom-3"/>
 </workspaceFilter>

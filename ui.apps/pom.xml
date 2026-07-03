@@ -50,6 +50,7 @@
                 <configuration>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
+                        <noIntermediateSaves>true</noIntermediateSaves>
                     </properties>
                     <allowIndexDefinitions>true</allowIndexDefinitions>
                     <group>com.adobe.aem.guides</group>
