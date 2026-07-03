@@ -35,18 +35,12 @@ public class ContentTitleServiceImpl implements ContentTitleService {
     private static final Logger LOG = LoggerFactory.getLogger(ContentTitleServiceImpl.class);
 
     /** Must match the subservice name declared in the serviceusermapping OSGi configuration. */
-    static final String SUBSERVICE_NAME = "wknd-content-reader";
+    static final String SUBSERVICE_NAME = "wknd-content-reader-account";
 
     private static final String JCR_TITLE = "jcr:title";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
-    
-    @Activate
-    public void init(){
-        String foo = getTitle("/content/wknd");
-        LOG.info("Activated {}", foo);
-    }
 
     @Override
     public String getTitle(String contentPath) {
