@@ -7,4 +7,5 @@
     <filter root="/apps/cq/experience-fragments"/>
     <filter root="/apps/msm/wknd_blueprint" mode="merge"/>
     <filter root="/oak:index/wknd.lastmodifiedby-1-custom-1"/>
+    <filter root="/oak:index/wknd.campaignid-1-custom-1"/>
 </workspaceFilter>

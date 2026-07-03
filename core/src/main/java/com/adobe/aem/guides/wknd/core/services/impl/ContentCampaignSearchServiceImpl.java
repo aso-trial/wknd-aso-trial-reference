@@ -44,8 +44,11 @@ public class ContentCampaignSearchServiceImpl implements ContentCampaignSearchSe
     /** Must match the subservice name declared in the serviceusermapping OSGi configuration. */
     static final String SUBSERVICE_NAME = "wknd-content-reader";
 
-    private static final String QUERY = "SELECT * FROM [nt:unstructured] WHERE ISDESCENDANTNODE([/content])"
+    private static final String QUERY = "SELECT [jcr:path] FROM [nt:unstructured] WHERE ISDESCENDANTNODE([/content])"
             + " AND [campaignId] = $campaignId";
+
+    /** Caps the result set so a widely-used or unexpected campaign id can't return an unbounded page of results. */
+    private static final long MAX_RESULTS = 500;
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
@@ -58,6 +61,7 @@ public class ContentCampaignSearchServiceImpl implements ContentCampaignSearchSe
             QueryManager queryManager = session.getWorkspace().getQueryManager();
             Query query = queryManager.createQuery(QUERY, Query.JCR_SQL2);
             query.bindValue("campaignId", session.getValueFactory().createValue(campaignId));
+            query.setLimit(MAX_RESULTS);
 
             QueryResult result = query.execute();
             List<String> paths = new ArrayList<>();
