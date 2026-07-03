@@ -22,6 +22,8 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.aem.guides.wknd.core.servlets.SampleMinuteJob;
+
 /** Processes Sling jobs created by {@link SampleMinuteJob}. */
 @Component(service = JobConsumer.class,
         property = {
