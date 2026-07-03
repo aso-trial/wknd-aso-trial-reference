@@ -5,6 +5,7 @@
 #
 
 $include "./default_filters.any"
+/005 { /type "allow" /url "/bin/wknd/*"    }  # allow wknd bin path access
 
 # Allow components JSON model
 /0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
@@ -40,3 +41,4 @@ $include "./default_filters.any"
 /1071 { /type "deny" /url "*us/en-word*" }
 
 /0202 { /type "allow" /method '(GET|HEAD)' /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|json)' /url "/wknd-*" }
+
