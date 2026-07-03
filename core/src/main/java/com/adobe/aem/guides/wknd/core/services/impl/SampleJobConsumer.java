@@ -25,7 +25,9 @@ import org.slf4j.LoggerFactory;
 import com.adobe.aem.guides.wknd.core.servlets.SampleMinuteJob;
 
 /** Processes Sling jobs created by {@link SampleMinuteJob}. */
-@Component(service = JobConsumer.class,
+@Component(
+        service = JobConsumer.class, 
+        immediate = true,
         property = {
                 JobConsumer.PROPERTY_TOPICS + "=" + SampleMinuteJob.JOB_TOPIC
         })
@@ -38,6 +40,12 @@ public class SampleJobConsumer implements JobConsumer {
     public JobResult process(Job job) {
         LOG.info("Processing Sling job '{}' (topic: '{}', createdAt: {})",
                 job.getId(), job.getTopic(), job.getProperty("createdAt"));
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return JobResult.OK;
     }
 }

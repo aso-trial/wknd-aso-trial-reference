@@ -23,7 +23,7 @@ import java.util.List;
 public interface ContentCampaignSearchService {
 
     /**
-     * @param campaignId the value of the {@code wknd:campaignId} property to search for
+     * @param campaignId the value of the {@code campaignId} property to search for
      * @return the paths of matching resources, or an empty list if none are found
      */
     List<String> findPagesByCampaignId(String campaignId);

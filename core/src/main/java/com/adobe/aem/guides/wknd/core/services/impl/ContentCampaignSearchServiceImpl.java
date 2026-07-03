@@ -45,7 +45,7 @@ public class ContentCampaignSearchServiceImpl implements ContentCampaignSearchSe
     static final String SUBSERVICE_NAME = "wknd-content-reader";
 
     private static final String QUERY = "SELECT * FROM [nt:unstructured] WHERE ISDESCENDANTNODE([/content])"
-            + " AND [wknd:campaignId] = $campaignId";
+            + " AND [campaignId] = $campaignId";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
