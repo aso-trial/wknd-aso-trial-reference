@@ -16,9 +16,9 @@
 package com.adobe.aem.guides.wknd.core.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Servlet;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -29,8 +29,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Produces an HTTP 502-like condition by writing a partial response then crashing.
- * The dispatcher receives an incomplete response from the AEM backend, resulting in a 502 Bad Gateway.
+ * Produces HTTP 502 Bad Gateway responses.
+ * Simulates the condition where a downstream service or backend returns an invalid response.
  *
  * {@code GET /bin/wknd/error-502-simulator}
  */
@@ -47,15 +47,7 @@ public class BadGatewaySimulatorServlet extends SlingSafeMethodsServlet {
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
         LOG.warn("502 Bad Gateway simulator triggered from {}", request.getRemoteAddr());
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(200);
-
-        PrintWriter writer = response.getWriter();
-        writer.write("{\"status\":\"partial response started\",\"data\":[");
-        writer.flush();
-        response.flushBuffer();
-
-        throw new RuntimeException("Simulated backend crash after partial response — triggers 502 at dispatcher layer");
+        response.sendError(HttpServletResponse.SC_BAD_GATEWAY,
+                "Simulated bad gateway — downstream service returned an invalid response");
     }
 }
