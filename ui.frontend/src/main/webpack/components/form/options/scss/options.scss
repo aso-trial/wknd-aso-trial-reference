@@ -12,6 +12,8 @@
 .cmp-form-options__label {}
 .cmp-form-options__drop-down-field {}
 .cmp-form-options__multi-drop-down-field {}
-.cmp-form-options__help-message {}
+.cmp-form-options__help-message {
+    color: #444444; / Improved color contrast for accessibility
+}
 .cmp-form-options__error-message {}
 .cmp-form-options__required {}
